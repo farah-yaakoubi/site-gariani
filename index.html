@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Équipements Gariani – Vente · Service · Distribution</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Lucide icons CDN -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,23 +43,63 @@ nav {
   background: var(--red); transition: width .25s;
 }
 .nav-links a:hover::after { width: 100%; }
-.nav-links a:hover { color: var(--red); }
-/* CTA pleine largeur coin */
 .nav-cta {
   background: var(--red); color: white;
   padding: 0 32px;
-  height: 72px; /* pleine hauteur nav */
+  height: 72px;
   text-decoration: none; font-weight: 800; font-size: 13px;
   letter-spacing: 1.5px; text-transform: uppercase;
   transition: background .2s;
   white-space: nowrap;
   display: flex; align-items: center; gap: 10px;
-  margin-right: -48px; /* couvre le padding nav */
+  margin-right: -48px;
   clip-path: polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%);
   padding-left: 42px;
 }
 .nav-cta:hover { background: var(--red-dark); }
-.nav-cta svg { width: 18px; height: 18px; stroke: white; }
+.nav-cta svg { width: 18px; height: 18px; stroke: white; flex-shrink: 0; }
+
+/* ─── HAMBURGER (mobile) ─── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 8px;
+  background: none; border: none;
+  margin-right: -48px;
+  padding-right: 24px;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--red);
+  transition: all .3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu dropdown */
+.mobile-menu {
+  display: none;
+  position: fixed; top: 72px; left: 0; right: 0; z-index: 199;
+  background: #ffffff; border-bottom: 3px solid var(--red);
+  flex-direction: column; padding: 16px 24px 24px;
+  gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: var(--red); text-decoration: none; font-weight: 900;
+  font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase;
+  padding: 12px 0; border-bottom: 1px solid rgba(196,30,30,0.1);
+  cursor: pointer; display: flex; align-items: center; gap: 8px;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a svg { width: 16px; height: 16px; stroke: var(--red); flex-shrink: 0; }
+.mobile-menu .mob-cta {
+  margin-top: 12px;
+  background: var(--red); color: white;
+  padding: 14px 24px; border-radius: 2px;
+  justify-content: center; border-bottom: none;
+}
+.mobile-menu .mob-cta svg { stroke: white; }
 
 /* ─── HERO ─── */
 .hero {
@@ -88,7 +127,6 @@ nav {
   content: ''; position: absolute; inset: 0;
   background: var(--stripe); opacity: 0.14;
 }
-
 .hero-content {
   position: relative; z-index: 2;
   max-width: 1140px; margin: 0 auto; padding: 80px 48px;
@@ -103,7 +141,7 @@ nav {
 .hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--red); }
 .hero-title {
   font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900; font-size: clamp(46px, 7vw, 86px);
+  font-weight: 900; font-size: clamp(42px, 7vw, 86px);
   line-height: 0.9; text-transform: uppercase; margin-bottom: 28px; letter-spacing: -1px;
 }
 .hero-title em { color: var(--red); font-style: normal; display: block; }
@@ -137,7 +175,7 @@ nav {
 .hcard-num { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 900; color: var(--red); line-height: 1; }
 .hcard-lbl { font-size: 11px; color: #666; margin-top: 5px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
 
-/* ─── TICKER CAROUSEL (remplace tagbar) ─── */
+/* ─── TICKER ─── */
 .ticker-wrap {
   background: var(--red);
   height: 52px;
@@ -145,7 +183,6 @@ nav {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center; /* ✅ centre horizontalement */
 }
 .ticker-wrap::before, .ticker-wrap::after {
   content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2;
@@ -155,7 +192,6 @@ nav {
 .ticker-track {
   display: flex;
   align-items: center;
-  justify-content: center; /* ✅ centre les éléments */
   white-space: nowrap;
   animation: ticker 18s linear infinite;
   will-change: transform;
@@ -172,7 +208,7 @@ nav {
   100% { transform: translateX(-50%); }
 }
 
-/* ─── SECTIONS COMMONS ─── */
+/* ─── SECTIONS ─── */
 .sec { padding: 96px 48px; }
 .sec-inner { max-width: 1140px; margin: 0 auto; }
 .sec-lbl {
@@ -183,7 +219,7 @@ nav {
 .sec-lbl::before { content: ''; width: 28px; height: 2px; background: var(--red); }
 .sec-title {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(32px, 5vw, 56px); font-weight: 900;
+  font-size: clamp(28px, 5vw, 56px); font-weight: 900;
   text-transform: uppercase; line-height: 0.95; margin-bottom: 56px;
 }
 .sec-title em { color: var(--red); font-style: normal; }
@@ -217,7 +253,7 @@ nav {
 .srv-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
 .srv-card p { color: #666; font-size: 14px; line-height: 1.7; }
 
-/* ─── MARQUES SECTION (dans home) ─── */
+/* ─── MARQUES ─── */
 .marques-sec { background: var(--dark); }
 .equip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 48px; }
 .equip-card {
@@ -274,7 +310,7 @@ nav {
 .produit-body p { color: #777; font-size: 14px; line-height: 1.75; }
 .produit-footer {
   padding: 14px 28px; border-top: 1px solid rgba(255,255,255,0.05);
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
 }
 .produit-footer a {
   color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: 1px;
@@ -289,34 +325,7 @@ nav {
 }
 .mq-group-label::before { content: ''; flex: 0 0 28px; height: 2px; background: var(--red); }
 .mq-group-label::after  { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
-
-/* ─── ABOUT ─── */
-.about-bg { background: var(--black); }
-.about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
-.about-box {
-  background: var(--gray); border: 1px solid rgba(255,255,255,0.05);
-  padding: 48px 42px; border-radius: 2px; position: relative; overflow: hidden;
-}
-.about-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--red); }
-.about-box::after {
-  content: ''; position: absolute; top: 0; right: 0;
-  width: 120px; height: 120px; background: var(--stripe); opacity: 0.1;
-  clip-path: polygon(100% 0, 0 0, 100% 100%);
-}
-.about-watermark {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 140px; font-weight: 900;
-  color: var(--red); opacity: 0.05; position: absolute; bottom: -20px; right: 10px;
-  line-height: 1; pointer-events: none;
-}
-.aitem { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; }
-.adot-wrap {
-  width: 32px; height: 32px; background: rgba(196,30,30,0.12);
-  border: 1px solid rgba(196,30,30,0.25); border-radius: 4px;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
-}
-.adot-wrap svg { width: 16px; height: 16px; stroke: var(--red); stroke-width: 2; }
-.aitem p { color: #888; font-size: 14px; line-height: 1.7; }
-.aitem strong { color: white; font-weight: 600; }
+.mq-group { margin-bottom: 56px; }
 
 /* ─── CONTACT ─── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
@@ -326,7 +335,6 @@ nav {
   width: 46px; height: 46px; flex-shrink: 0;
   background: rgba(196,30,30,0.1); border: 1px solid rgba(196,30,30,0.22);
   border-radius: 4px; display: flex; align-items: center; justify-content: center;
-  color: var(--red);
 }
 .cicon svg { width: 20px; height: 20px; stroke: var(--red); stroke-width: 1.8; }
 .citem h4 { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-bottom: 6px; }
@@ -368,9 +376,7 @@ footer {
   display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 48px;
 }
 .foot-logo-wrap {
-  background: transparent;
-  padding: 10px 0; display: inline-flex; align-items: center;
-  margin-bottom: 18px;
+  padding: 10px 0; display: inline-flex; align-items: center; margin-bottom: 18px;
 }
 .foot-logo-wrap img { height: 56px; width: auto; display: block; }
 .foot-tagline {
@@ -399,32 +405,10 @@ footer {
   transition: all .2s;
 }
 .sbtn:hover { background: var(--red); border-color: var(--red); color: white; }
-.sbtn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; transition: fill .2s; }
+.sbtn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 .foot-bottom {
   border-top: 1px solid #eee; padding-top: 24px;
   text-align: center; color: #aaa; font-size: 12px;
-}
-
-/* ─── RESPONSIVE ─── */
-@media(max-width:1024px){
-  nav { padding: 0 24px; }
-  .nav-cta { margin-right: -24px; }
-  .hero-content { padding: 60px 24px; gap: 40px; }
-  .sec { padding: 72px 24px; }
-  footer { padding: 48px 24px 24px; }
-  .foot-inner { grid-template-columns: 1fr; gap: 36px; }
-  .equip-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media(max-width:900px){
-  .hero-content { grid-template-columns: 1fr; }
-  .hero-cards { display: none; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .produits-grid { grid-template-columns: 1fr; }
-}
-@media(max-width:640px){
-  .equip-grid { grid-template-columns: repeat(2, 1fr); }
-  .nav-links .hnav { display: none; }
-  .nav-cta span.cta-label { display: none; }
 }
 
 /* ─── ANIMATIONS ─── */
@@ -434,6 +418,99 @@ footer {
 .hero-sub{ animation: fadeUp .55s .2s ease both; }
 .hero-btns{ animation: fadeUp .55s .3s ease both; }
 .hero-cards{ animation: fadeUp .55s .4s ease both; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════ */
+
+/* ─── TABLET (≤ 1024px) ─── */
+@media(max-width: 1024px) {
+  nav { padding: 0 24px; }
+  .nav-cta { margin-right: -24px; padding-right: 24px; }
+  .hero-content { padding: 60px 24px; gap: 40px; }
+  .sec { padding: 72px 24px; }
+  footer { padding: 48px 24px 24px; }
+  .foot-inner { grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+  .foot-brand { grid-column: 1 / -1; }
+  .equip-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { gap: 40px; }
+}
+
+/* ─── TABLET PORTRAIT (≤ 900px) ─── */
+@media(max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-cards { display: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .produits-grid { grid-template-columns: 1fr; }
+  .srv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ─── MOBILE (≤ 640px) ─── */
+@media(max-width: 640px) {
+  /* NAV */
+  nav { padding: 0 20px; height: 64px; }
+  .nav-logo img { height: 38px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; margin-right: -20px; padding-right: 20px; }
+
+  /* HERO */
+  .hero { padding-top: 64px; }
+  .hero-main { min-height: calc(100vh - 64px - 52px); }
+  .hero-content { padding: 44px 20px 44px; gap: 28px; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 2.5px; }
+  .hero-title { font-size: clamp(38px, 11vw, 56px); margin-bottom: 20px; }
+  .hero-sub { font-size: 14px; margin-bottom: 32px; }
+  .hero-btns { flex-direction: column; gap: 10px; }
+  .btn-red, .btn-ghost { width: 100%; justify-content: center; padding: 14px 20px; }
+  .hero-stripe-block { width: 120px; }
+
+  /* TICKER */
+  .ticker-item { font-size: 14px; padding: 0 20px; letter-spacing: 3px; }
+
+  /* SECTIONS */
+  .sec { padding: 56px 20px; }
+  .sec-title { margin-bottom: 36px; }
+
+  /* SERVICES */
+  .srv-grid { grid-template-columns: 1fr; gap: 2px; }
+
+  /* MARQUES */
+  .equip-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 32px; }
+  .equip-logo-zone { height: 110px; }
+  .equip-card-footer { padding: 10px 12px; }
+  .equip-card-name { font-size: 13px; }
+  .equip-badge { display: none; }
+
+  .produits-grid { grid-template-columns: 1fr; }
+  .produit-logo-zone { height: 140px; }
+  .produit-body { padding: 20px 20px 14px; }
+  .produit-footer { padding: 12px 20px; }
+
+  /* CONTACT */
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cform { padding: 28px 20px; }
+  .citem { gap: 14px; }
+  .citem p, .citem a { font-size: 14px; }
+
+  /* FOOTER */
+  footer { padding: 40px 20px 20px; }
+  .foot-inner { grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+  .foot-brand { grid-column: auto; }
+  .foot-logo-wrap img { height: 44px; }
+  .foot-bottom { font-size: 11px; line-height: 1.8; }
+
+  /* MARQUES section padding fix */
+  .marques-sec .sec-inner > div { padding-top: 40px !important; }
+}
+
+/* ─── SMALL MOBILE (≤ 380px) ─── */
+@media(max-width: 380px) {
+  .hero-title { font-size: 36px; }
+  .equip-grid { grid-template-columns: 1fr; }
+  .equip-logo-zone { height: 120px; }
+  .cform { padding: 22px 16px; }
+}
 </style>
 </head>
 <body>
@@ -453,14 +530,41 @@ footer {
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>
     <span class="cta-label">514-736-5555</span>
   </a>
+  <!-- Hamburger mobile -->
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="closeMenu(); goSection('services')">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+    Services
+  </a>
+  <a onclick="closeMenu(); goSection('marques')">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/></svg>
+    Marques
+  </a>
+  <a onclick="closeMenu(); goSection('about')">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+    À propos
+  </a>
+  <a onclick="closeMenu(); goSection('contact')">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+    Contact
+  </a>
+  <a href="tel:5147365555" class="mob-cta">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>
+    514-736-5555
+  </a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="hero-top">
   <div class="hero-main">
     <div class="hero-bg"></div>
     <div class="hero-stripe-block"></div>
-    <div class="hero-stripe-accent"></div>
     <div class="hero-content">
       <div>
         <div class="hero-eyebrow">Montréal, Québec · Canada</div>
@@ -487,8 +591,7 @@ footer {
       </div>
     </div>
   </div>
-
-  <!-- TICKER (bande défilante) -->
+  <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-track" id="ticker">
       <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
@@ -555,116 +658,92 @@ footer {
   </div>
 </section>
 
-<!-- MARQUES (section dans index) -->
+<!-- MARQUES -->
 <section class="sec marques-sec" id="marques">
-  <div style="padding-top:72px;">
-    <div class="mq-hero">
-      <div class="sec-lbl" style="justify-content:center;">Nos partenaires exclusifs</div>
+  <div class="sec-inner">
+    <div style="padding-top: 40px;">
+      <div class="sec-lbl" style="justify-content:center; display:flex;">Nos partenaires exclusifs</div>
       <h2 class="sec-title" style="text-align:center; margin-bottom:16px;">Nos <em>Marques</em></h2>
       <p style="color:#555; max-width:540px; margin:0 auto; font-size:15px; line-height:1.8; text-align:center;">Gariani distribue, vend et entretient les meilleures marques professionnelles du marché au Québec.</p>
-    </div>
 
-    <div class="mq-groups" style="margin-top:56px;">
-
-      <!-- ÉQUIPEMENTS MOTORISÉS -->
-      <div class="mq-group">
-        <div class="mq-group-label">Équipements &amp; Matériel Motorisé</div>
-        <div class="equip-grid">
-
-          <div class="equip-card">
-            <div class="equip-logo-zone">
-              <img src="images/LOGO AGRICUt.png" alt="Agricut">
+      <div class="mq-groups" style="margin-top:56px;">
+        <!-- ÉQUIPEMENTS MOTORISÉS -->
+        <div class="mq-group">
+          <div class="mq-group-label">Équipements &amp; Matériel Motorisé</div>
+          <div class="equip-grid">
+            <div class="equip-card">
+              <div class="equip-logo-zone"><img src="images/LOGO AGRICUt.png" alt="Agricut"></div>
+              <div class="equip-card-footer">
+                <span class="equip-card-name">Agricut</span>
+                <span class="equip-badge">Équipement</span>
+              </div>
             </div>
-            <div class="equip-card-footer">
-              <span class="equip-card-name">Agricut</span>
-              <span class="equip-badge">Équipement</span>
+            <div class="equip-card">
+              <div class="equip-logo-zone"><img src="images/LOGO STAUB.png" alt="Staub"></div>
+              <div class="equip-card-footer">
+                <span class="equip-card-name">Staub</span>
+                <span class="equip-badge">Équipement</span>
+              </div>
+            </div>
+            <div class="equip-card">
+              <div class="equip-logo-zone"><img src="images/LOGO STHIL.png" alt="Stihl"></div>
+              <div class="equip-card-footer">
+                <span class="equip-card-name">Stihl</span>
+                <span class="equip-badge">Équipement</span>
+              </div>
+            </div>
+            <div class="equip-card">
+              <div class="equip-logo-zone"><img src="images/LOGO WEIBANG.png" alt="Weibang"></div>
+              <div class="equip-card-footer">
+                <span class="equip-card-name">Weibang</span>
+                <span class="equip-badge">Équipement</span>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="equip-card">
-            <div class="equip-logo-zone">
-              <img src="images/LOGO STAUB.png" alt="Staub">
+        <!-- PRODUITS & TRAITEMENTS -->
+        <div class="mq-group">
+          <div class="mq-group-label">Produits &amp; Traitements Professionnels</div>
+          <div class="produits-grid">
+            <div class="produit-card">
+              <div class="produit-top-accent"></div>
+              <div class="produit-logo-zone"><img src="images/LOGO FERTIVERT.png" alt="Fertivert"></div>
+              <div class="produit-body">
+                <h3>Fertivert</h3>
+                <div class="tag-row">
+                  <span class="tag">Fertilisants</span>
+                  <span class="tag">Espaces verts</span>
+                  <span class="tag">Pro</span>
+                </div>
+                <p>Solutions de fertilisation professionnelle pour espaces verts, gazons et cultures ornementales. Gamme complète formulée pour les professionnels du paysage et de l'horticulture au Québec.</p>
+              </div>
+              <div class="produit-footer">
+                <a onclick="goSection('contact')">Demander un devis →</a>
+                <span class="tag" style="font-size:9px;">Distributeur exclusif</span>
+              </div>
             </div>
-            <div class="equip-card-footer">
-              <span class="equip-card-name">Staub</span>
-              <span class="equip-badge">Équipement</span>
+            <div class="produit-card">
+              <div class="produit-top-accent"></div>
+              <div class="produit-logo-zone"><img src="images/LOGO PULVERT.png" alt="Pulvert"></div>
+              <div class="produit-body">
+                <h3>Pulvert</h3>
+                <div class="tag-row">
+                  <span class="tag">Pulvérisateurs</span>
+                  <span class="tag">Traitement</span>
+                  <span class="tag">Pro</span>
+                </div>
+                <p>Équipements de pulvérisation et produits de traitement professionnels pour l'entretien des espaces verts. Solutions adaptées aux paysagistes, entrepreneurs et municipalités.</p>
+              </div>
+              <div class="produit-footer">
+                <a onclick="goSection('contact')">Demander un devis →</a>
+                <span class="tag" style="font-size:9px;">Distributeur exclusif</span>
+              </div>
             </div>
           </div>
-
-          <div class="equip-card">
-            <div class="equip-logo-zone">
-              <img src="images/LOGO STHIL.png" alt="Stihl">
-            </div>
-            <div class="equip-card-footer">
-              <span class="equip-card-name">Stihl</span>
-              <span class="equip-badge">Équipement</span>
-            </div>
-          </div>
-
-          <div class="equip-card">
-            <div class="equip-logo-zone">
-              <img src="images/LOGO WEIBANG.png" alt="Weibang">
-            </div>
-            <div class="equip-card-footer">
-              <span class="equip-card-name">Weibang</span>
-              <span class="equip-badge">Équipement</span>
-            </div>
-          </div>
-
         </div>
       </div>
-
-      <!-- PRODUITS & TRAITEMENTS -->
-      <div class="mq-group">
-        <div class="mq-group-label">Produits &amp; Traitements Professionnels</div>
-        <div class="produits-grid">
-
-          <div class="produit-card">
-            <div class="produit-top-accent"></div>
-            <div class="produit-logo-zone">
-              <img src="images/LOGO FERTIVERT.png" alt="Fertivert">
-            </div>
-            <div class="produit-body">
-              <h3>Fertivert</h3>
-              <div class="tag-row">
-                <span class="tag">Fertilisants</span>
-                <span class="tag">Espaces verts</span>
-                <span class="tag">Pro</span>
-              </div>
-              <p>Solutions de fertilisation professionnelle pour espaces verts, gazons et cultures ornementales. Gamme complète formulée pour les professionnels du paysage et de l'horticulture au Québec.</p>
-            </div>
-            <div class="produit-footer">
-              <a onclick="goHome(); setTimeout(()=>goSection('contact'),200)">Demander un devis →</a>
-              <span class="tag" style="font-size:9px;">Distributeur exclusif</span>
-            </div>
-          </div>
-
-          <div class="produit-card">
-            <div class="produit-top-accent"></div>
-            <div class="produit-logo-zone">
-              <img src="images/LOGO PULVERT.png" alt="Pulvert">
-            </div>
-            <div class="produit-body">
-              <h3>Pulvert</h3>
-              <div class="tag-row">
-                <span class="tag">Pulvérisateurs</span>
-                <span class="tag">Traitement</span>
-                <span class="tag">Pro</span>
-              </div>
-              <p>Équipements de pulvérisation et produits de traitement professionnels pour l'entretien des espaces verts. Solutions adaptées aux paysagistes, entrepreneurs et municipalités.</p>
-            </div>
-            <div class="produit-footer">
-              <a onclick="goHome(); setTimeout(()=>goSection('contact'),200)">Demander un devis →</a>
-              <span class="tag" style="font-size:9px;">Distributeur exclusif</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
-  </div>
-</div><!-- /marques -->
   </div>
 </section>
 
@@ -730,16 +809,12 @@ footer {
         Accueil
       </a>
       <a onclick="goSection('services')">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
         Services
       </a>
       <a onclick="goSection('marques')">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/></svg>
         Marques
-      </a>
-      <a onclick="goSection('about')">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
-        À propos
       </a>
       <a onclick="goSection('contact')">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
@@ -755,11 +830,9 @@ footer {
       <div class="social-row">
         <a href="https://www.facebook.com/people/les-%C3%A9quipements-ghariani/61576408641587/" target="_blank" class="sbtn" style="color: #1877F2;">
           <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        
         </a>
         <a href="https://www.linkedin.com/company/%C3%A9quipements-gariani/about/" target="_blank" class="sbtn" style="color: #0077B5;">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-         
         </a>
       </div>
     </div>
@@ -774,6 +847,28 @@ function goSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+// Fermer le menu si on clique dehors
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  }
+});
 </script>
 </body>
 </html>
