@@ -88,7 +88,7 @@ nav {
   content: ''; position: absolute; inset: 0;
   background: var(--stripe); opacity: 0.14;
 }
-.hero-stripe-accent { position: absolute; top: 0; right: 252px; width: 6px; height: 100%; background: var(--red); opacity: 0.55; }
+
 .hero-content {
   position: relative; z-index: 2;
   max-width: 1140px; margin: 0 auto; padding: 80px 48px;
@@ -140,8 +140,12 @@ nav {
 /* ─── TICKER CAROUSEL (remplace tagbar) ─── */
 .ticker-wrap {
   background: var(--red);
-  height: 52px; overflow: hidden; position: relative;
-  display: flex; align-items: center;
+  height: 52px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ✅ centre horizontalement */
 }
 .ticker-wrap::before, .ticker-wrap::after {
   content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2;
@@ -149,7 +153,9 @@ nav {
 .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--red), transparent); }
 .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--red), transparent); }
 .ticker-track {
-  display: flex; align-items: center; gap: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ✅ centre les éléments */
   white-space: nowrap;
   animation: ticker 18s linear infinite;
   will-change: transform;
@@ -491,6 +497,18 @@ footer {
       <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
       <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
       <div class="ticker-item">Distribution <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Distribution <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Distribution <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Distribution <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
+      <div class="ticker-item">Distribution <span class="ticker-sep">◼</span></div>
     </div>
   </div>
 </section>
@@ -668,14 +686,6 @@ footer {
         <div class="citem">
           <div class="cicon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div>
           <div><h4>E-mail</h4><a href="mailto:info@equipementsgariani.ca">info@equipementsgariani.ca</a></div>
-        </div>
-        <div class="citem">
-          <div class="cicon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12a8.96 8.96 0 00.284 2.253"/></svg></div>
-          <div><h4>Site Web</h4><a href="https://equipementsgariani.ca" target="_blank">equipementsgariani.ca</a></div>
-        </div>
-        <div class="citem">
-          <div class="cicon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-          <div><h4>Horaires</h4><p>Lun – Ven : 8h00 – 17h00<br>Sam : 9h00 – 14h00</p></div>
         </div>
       </div>
       <div class="cform">
