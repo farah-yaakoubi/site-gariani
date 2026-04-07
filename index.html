@@ -252,6 +252,7 @@ nav {
 .srv-icon-wrap svg { width: 26px; height: 26px; stroke: var(--red); stroke-width: 1.8; }
 .srv-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
 .srv-card p { color: #666; font-size: 14px; line-height: 1.7; }
+  
 
 /* ─── MARQUES ─── */
 .marques-sec { background: var(--dark); }
@@ -534,6 +535,7 @@ footer {
      les formulaires. Ce bloc caché est obligatoire.
 ════════════════════════════════════════════ -->
 <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email" placeholder="tapez votre adresse email" required>
   <input type="text"   name="nom">
   <input type="tel"    name="telephone">
   <select name="sujet">
