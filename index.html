@@ -364,7 +364,38 @@ nav {
   display: flex; align-items: center; justify-content: center; gap: 8px;
 }
 .fsub:hover { background: var(--red-dark); transform: translateY(-1px); }
+.fsub:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .fsub svg { width: 16px; height: 16px; stroke: white; }
+
+/* ─── SUCCESS / ERROR MESSAGES ─── */
+.form-success {
+  display: none;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-left: 3px solid #22c55e;
+  border-radius: 2px;
+  padding: 18px 20px;
+  margin-top: 16px;
+  color: #86efac;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.form-success.show { display: flex; align-items: flex-start; gap: 12px; }
+.form-success svg { width: 18px; height: 18px; stroke: #22c55e; flex-shrink: 0; margin-top: 1px; }
+.form-error {
+  display: none;
+  background: rgba(196,30,30,0.1);
+  border: 1px solid rgba(196,30,30,0.3);
+  border-left: 3px solid var(--red);
+  border-radius: 2px;
+  padding: 18px 20px;
+  margin-top: 16px;
+  color: #fca5a5;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.form-error.show { display: flex; align-items: flex-start; gap: 12px; }
+.form-error svg { width: 18px; height: 18px; stroke: var(--red); flex-shrink: 0; margin-top: 1px; }
 
 /* ─── FOOTER ─── */
 footer {
@@ -447,14 +478,11 @@ footer {
 
 /* ─── MOBILE (≤ 640px) ─── */
 @media(max-width: 640px) {
-  /* NAV */
   nav { padding: 0 20px; height: 64px; }
   .nav-logo img { height: 38px; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
   .nav-hamburger { display: flex; margin-right: -20px; padding-right: 20px; }
-
-  /* HERO */
   .hero { padding-top: 64px; }
   .hero-main { min-height: calc(100vh - 64px - 52px); }
   .hero-content { padding: 44px 20px 44px; gap: 28px; }
@@ -464,43 +492,28 @@ footer {
   .hero-btns { flex-direction: column; gap: 10px; }
   .btn-red, .btn-ghost { width: 100%; justify-content: center; padding: 14px 20px; }
   .hero-stripe-block { width: 120px; }
-
-  /* TICKER */
   .ticker-item { font-size: 14px; padding: 0 20px; letter-spacing: 3px; }
-
-  /* SECTIONS */
   .sec { padding: 56px 20px; }
   .sec-title { margin-bottom: 36px; }
-
-  /* SERVICES */
   .srv-grid { grid-template-columns: 1fr; gap: 2px; }
-
-  /* MARQUES */
   .equip-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 32px; }
   .equip-logo-zone { height: 110px; }
   .equip-card-footer { padding: 10px 12px; }
   .equip-card-name { font-size: 13px; }
   .equip-badge { display: none; }
-
   .produits-grid { grid-template-columns: 1fr; }
   .produit-logo-zone { height: 140px; }
   .produit-body { padding: 20px 20px 14px; }
   .produit-footer { padding: 12px 20px; }
-
-  /* CONTACT */
   .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .cform { padding: 28px 20px; }
   .citem { gap: 14px; }
   .citem p, .citem a { font-size: 14px; }
-
-  /* FOOTER */
   footer { padding: 40px 20px 20px; }
   .foot-inner { grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
   .foot-brand { grid-column: auto; }
   .foot-logo-wrap img { height: 44px; }
   .foot-bottom { font-size: 11px; line-height: 1.8; }
-
-  /* MARQUES section padding fix */
   .marques-sec .sec-inner > div { padding-top: 40px !important; }
 }
 
@@ -514,6 +527,27 @@ footer {
 </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════
+     NETLIFY FORMS — formulaire caché pour détection au build
+     Netlify scanne le HTML statique au déploiement pour enregistrer
+     les formulaires. Ce bloc caché est obligatoire.
+════════════════════════════════════════════ -->
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text"   name="nom">
+  <input type="tel"    name="telephone">
+  <select name="sujet">
+    <option>Demande de service</option>
+    <option>Réparation d'équipement</option>
+    <option>Achat d'équipement</option>
+    <option>Distribution / Grossiste</option>
+    <option>Produits Fertivert</option>
+    <option>Produits Pulvert</option>
+    <option>Autre</option>
+  </select>
+  <textarea name="message"></textarea>
+  <input type="text"   name="bot-field">
+</form>
 
 <!-- NAV -->
 <nav>
@@ -530,7 +564,6 @@ footer {
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>
     <span class="cta-label">514-736-5555</span>
   </a>
-  <!-- Hamburger mobile -->
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -559,6 +592,7 @@ footer {
     514-736-5555
   </a>
 </div>
+
 <!-- HERO -->
 <section class="hero" id="hero-top">
   <div class="hero-main">
@@ -590,7 +624,6 @@ footer {
       </div>
     </div>
   </div>
-  <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-track" id="ticker">
       <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
@@ -633,7 +666,7 @@ footer {
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
         </div>
         <h3>Solutions Espaces Verts</h3>
-        <p>Solutions professionnelles complètes vos espaces verts</p>
+        <p>Solutions professionnelles complètes pour vos espaces verts</p>
       </div>
       <div class="srv-card">
         <div class="srv-card-num">02</div>
@@ -772,26 +805,79 @@ footer {
           <div><h4>E-mail</h4><a href="mailto:info@equipementsgariani.ca">info@equipementsgariani.ca</a></div>
         </div>
       </div>
+
+      <!-- ═══════════════════════════════════════════
+           FORMULAIRE NETLIFY
+           - data-netlify="true"        → active Netlify Forms
+           - netlify-honeypot="bot-field" → piège anti-spam
+           - action="/merci.html"        → redirection après envoi (optionnel)
+           - L'envoi se fait en AJAX pour rester sur la page
+      ════════════════════════════════════════════ -->
       <div class="cform">
         <h3>Envoyez-nous un message</h3>
-        <div class="fg"><label>Nom complet</label><input type="text" placeholder="Votre nom"></div>
-        <div class="fg"><label>Téléphone</label><input type="tel" placeholder="514-xxx-xxxx"></div>
-        <div class="fg"><label>Sujet</label>
-          <select>
-            <option>Demande de service</option>
-            <option>Réparation d'équipement</option>
-            <option>Achat d'équipement</option>
-            <option>Distribution / Grossiste</option>
-            <option>Produits Fertivert</option>
-            <option>Produits Pulvert</option>
-            <option>Autre</option>
-          </select>
-        </div>
-        <div class="fg"><label>Message</label><textarea placeholder="Décrivez votre demande..."></textarea></div>
-        <button class="fsub">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-          Envoyer le message
-        </button>
+        <form
+          id="contactForm"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <!-- Champ caché obligatoire pour Netlify -->
+          <input type="hidden" name="form-name" value="contact">
+
+          <!-- Piège anti-spam (invisible pour les humains) -->
+          <p style="display:none">
+            <label>Ne pas remplir : <input name="bot-field"></label>
+          </p>
+
+          <div class="fg">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="fg">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="514-xxx-xxxx">
+          </div>
+          <div class="fg">
+            <label for="sujet">Sujet</label>
+            <select id="sujet" name="sujet">
+              <option>Demande de service</option>
+              <option>Réparation d'équipement</option>
+              <option>Achat d'équipement</option>
+              <option>Distribution / Grossiste</option>
+              <option>Produits Fertivert</option>
+              <option>Produits Pulvert</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Décrivez votre demande..."></textarea>
+          </div>
+
+          <button type="submit" class="fsub" id="submitBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+            Envoyer le message
+          </button>
+
+          <!-- Message de succès -->
+          <div class="form-success" id="formSuccess">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div>
+              <strong>Message envoyé avec succès !</strong><br>
+              Nous vous répondrons dans les plus brefs délais à l'adresse info@equipementsgariani.ca
+            </div>
+          </div>
+
+          <!-- Message d'erreur -->
+          <div class="form-error" id="formError">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+            <div>
+              <strong>Une erreur est survenue.</strong><br>
+              Veuillez réessayer ou nous appeler au <a href="tel:5147365555" style="color: #fca5a5;">514-736-5555</a>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -848,6 +934,7 @@ footer {
 </footer>
 
 <script>
+/* ─── Navigation ─── */
 function goSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -865,7 +952,6 @@ function closeMenu() {
   document.getElementById('hamburger').classList.remove('open');
 }
 
-// Fermer le menu si on clique dehors
 document.addEventListener('click', function(e) {
   const menu = document.getElementById('mobileMenu');
   const btn = document.getElementById('hamburger');
@@ -874,6 +960,68 @@ document.addEventListener('click', function(e) {
     btn.classList.remove('open');
   }
 });
+
+/* ─── Netlify Forms — envoi AJAX ─── */
+const form       = document.getElementById('contactForm');
+const submitBtn  = document.getElementById('submitBtn');
+const successMsg = document.getElementById('formSuccess');
+const errorMsg   = document.getElementById('formError');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault(); // empêche le rechargement de la page
+
+  // Reset messages
+  successMsg.classList.remove('show');
+  errorMsg.classList.remove('show');
+
+  // État de chargement
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" style="animation: spin 1s linear infinite; width:16px; height:16px;">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+    </svg>
+    Envoi en cours...
+  `;
+
+  try {
+    const formData = new FormData(form);
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    if (response.ok) {
+      // Succès
+      successMsg.classList.add('show');
+      form.reset();
+      // Remettre le bouton normal
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+        Envoyer le message
+      `;
+    } else {
+      throw new Error('Réponse serveur: ' + response.status);
+    }
+  } catch (err) {
+    // Erreur
+    errorMsg.classList.add('show');
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+      Envoyer le message
+    `;
+  }
+});
 </script>
+
+<style>
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+</style>
+
 </body>
 </html>
