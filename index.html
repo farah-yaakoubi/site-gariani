@@ -3,450 +3,275 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Équipements Gariani – Vente · Service · Distribution</title>
+<title>Équipements Gariani</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --red: #C41E1E;
-  --red2: #E02020;
-  --red-dark: #9B1515;
-  --black: #0a0a0a;
-  --dark: #141414;
-  --dark2: #1a1a1a;
-  --white: #FFFFFF;
-  --stripe: repeating-linear-gradient(-45deg, #ffffff 0px, #ffffff 8px, transparent 8px, transparent 20px);
+  --red: #C41E1E; --red2: #E02020; --red-dark: #9B1515;
+  --black: #111111; --dark: #1c1c1c; --dark2: #232323; --white: #FFFFFF;
+  --stripe: repeating-linear-gradient(-45deg,#fff 0,#fff 8px,transparent 8px,transparent 20px);
 }
 html { scroll-behavior: smooth; }
-body { font-family: 'Barlow', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+body { font-family:'Barlow',sans-serif; background:var(--black); color:var(--white); overflow-x:hidden; font-size:16px; }
 
 /* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: #ffffff; border-bottom: 3px solid var(--red);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 48px; height: 72px;
-}
-.nav-logo { cursor: pointer; display: flex; align-items: center; }
-.nav-logo img { height: 48px; width: auto; display: block; }
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a {
-  color: var(--red); text-decoration: none; font-weight: 900;
-  font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
-  transition: color .2s; cursor: pointer; position: relative;
-}
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
-  background: var(--red); transition: width .25s;
-}
-.nav-links a:hover::after { width: 100%; }
-.nav-cta {
-  background: var(--red); color: white; padding: 0 32px; height: 72px;
-  text-decoration: none; font-weight: 800; font-size: 13px;
-  letter-spacing: 1.5px; text-transform: uppercase; transition: background .2s;
-  white-space: nowrap; display: flex; align-items: center; gap: 10px;
-  margin-right: -48px; clip-path: polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%);
-  padding-left: 42px;
-}
-.nav-cta:hover { background: var(--red-dark); }
-.nav-cta svg { width: 18px; height: 18px; stroke: white; flex-shrink: 0; }
-
-/* HAMBURGER */
-.nav-hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  cursor: pointer; padding: 8px; background: none; border: none;
-  margin-right: -48px; padding-right: 24px;
-}
-.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--red); transition: all .3s; }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.mobile-menu {
-  display: none; position: fixed; top: 72px; left: 0; right: 0; z-index: 199;
-  background: #ffffff; border-bottom: 3px solid var(--red);
-  flex-direction: column; padding: 16px 24px 24px; gap: 4px;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  color: var(--red); text-decoration: none; font-weight: 900;
-  font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase;
-  padding: 12px 0; border-bottom: 1px solid rgba(196,30,30,0.1);
-  cursor: pointer; display: flex; align-items: center; gap: 8px;
-}
-.mobile-menu a:last-child { border-bottom: none; }
-.mobile-menu a svg { width: 16px; height: 16px; stroke: var(--red); flex-shrink: 0; }
-.mobile-menu .mob-cta {
-  margin-top: 12px; background: var(--red); color: white;
-  padding: 14px 24px; border-radius: 2px; justify-content: center; border-bottom: none;
-}
-.mobile-menu .mob-cta svg { stroke: white; }
+nav { position:fixed; top:0; left:0; right:0; z-index:200; background:#fff; border-bottom:3px solid var(--red); display:flex; align-items:center; justify-content:space-between; padding:0 48px; height:72px; }
+.nav-logo { cursor:pointer; display:flex; align-items:center; }
+.nav-logo img { height:58px; width:auto; display:block; }
+.nav-links { display:flex; gap:32px; align-items:center; }
+.nav-links a { color:var(--red); text-decoration:none; font-weight:900; font-size:13px; letter-spacing:1.8px; text-transform:uppercase; transition:color .2s; cursor:pointer; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--red); transition:width .25s; }
+.nav-links a:hover::after { width:100%; }
+.nav-cta { background:var(--red); color:white; padding:0 32px; height:72px; text-decoration:none; font-weight:800; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; transition:background .2s; white-space:nowrap; display:flex; align-items:center; gap:10px; margin-right:-48px; clip-path:polygon(16px 0%,100% 0%,100% 100%,0% 100%); padding-left:42px; }
+.nav-cta:hover { background:var(--red-dark); }
+.nav-cta svg { width:18px; height:18px; stroke:white; flex-shrink:0; }
+.nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; margin-right:-48px; padding-right:24px; }
+.nav-hamburger span { display:block; width:24px; height:2px; background:var(--red); transition:all .3s; }
+.nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity:0; }
+.nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+.mobile-menu { display:none; position:fixed; top:72px; left:0; right:0; z-index:199; background:#fff; border-bottom:3px solid var(--red); flex-direction:column; padding:16px 24px 24px; gap:4px; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { color:var(--red); text-decoration:none; font-weight:900; font-size:15px; letter-spacing:1.8px; text-transform:uppercase; padding:12px 0; border-bottom:1px solid rgba(196,30,30,0.1); cursor:pointer; display:flex; align-items:center; gap:8px; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu a svg { width:16px; height:16px; stroke:var(--red); flex-shrink:0; }
+.mobile-menu .mob-cta { margin-top:12px; background:var(--red); color:white; padding:14px 24px; border-radius:2px; justify-content:center; border-bottom:none; }
+.mobile-menu .mob-cta svg { stroke:white; }
 
 /* HERO */
-.hero {
-  min-height: 100vh; position: relative; overflow: hidden;
-  display: flex; flex-direction: column; padding-top: 72px; background: var(--black);
-}
-.hero-main { flex: 1; display: flex; align-items: center; position: relative; }
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 70% 50%, rgba(196,30,30,0.22) 0%, transparent 58%),
-    radial-gradient(ellipse at 10% 80%, rgba(196,30,30,0.08) 0%, transparent 42%),
-    linear-gradient(155deg, #0a0a0a 50%, #160808 100%);
-}
-.hero-stripe-block {
-  position: absolute; top: 0; right: 0; width: 260px; height: 100%;
-  clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 10% 100%); overflow: hidden;
-}
-.hero-stripe-block::before { content: ''; position: absolute; inset: 0; background: var(--stripe); opacity: 0.14; }
-.hero-content {
-  position: relative; z-index: 2; max-width: 1140px; margin: 0 auto; padding: 80px 48px;
-  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 70px; align-items: center; width: 100%;
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 12px;
-  color: var(--red); font-size: 11px; font-weight: 700;
-  letter-spacing: 3.5px; text-transform: uppercase; margin-bottom: 20px;
-}
-.hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--red); }
-.hero-title {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-  font-size: clamp(42px, 7vw, 86px); line-height: 0.9;
-  text-transform: uppercase; margin-bottom: 28px; letter-spacing: -1px;
-}
-.hero-title em { color: var(--red); font-style: normal; display: block; }
-.hero-sub { font-size: 15px; color: #888; line-height: 1.8; margin-bottom: 40px; max-width: 420px; }
-.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-red {
-  background: var(--red); color: white; padding: 14px 32px;
-  text-decoration: none; font-weight: 700; font-size: 13px;
-  letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px;
-  transition: background .2s, transform .15s, box-shadow .2s;
-  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 2px solid var(--red);
-}
-.btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,30,30,0.35); }
-.btn-ghost {
-  border: 2px solid rgba(255,255,255,0.18); color: #ccc; padding: 14px 32px;
-  text-decoration: none; font-weight: 700; font-size: 13px;
-  letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px;
-  transition: border-color .2s, color .2s, transform .15s;
-  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
-}
-.btn-ghost:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
-.btn-red svg, .btn-ghost svg { width: 16px; height: 16px; stroke: currentColor; }
-.hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.hcard {
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-  border-left: 3px solid var(--red); padding: 24px 20px; border-radius: 2px;
-  transition: background .2s, transform .2s;
-}
-.hcard:hover { background: rgba(196,30,30,0.08); transform: translateY(-3px); }
-.hcard-num { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 900; color: var(--red); line-height: 1; }
-.hcard-lbl { font-size: 11px; color: #666; margin-top: 5px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+.hero { min-height:100vh; position:relative; overflow:hidden; display:flex; flex-direction:column; padding-top:72px; background:var(--black); }
+.hero-main { flex:1; display:flex; align-items:center; position:relative; }
+.hero-bg { position:absolute; inset:0; background-image:url('images/image-bg.png'); background-size:cover; background-position:center; background-repeat:no-repeat; }
+.hero-bg::after { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 70% 50%,rgba(196,30,30,0.18) 0%,transparent 55%), linear-gradient(155deg,rgba(10,10,10,0.72) 35%,rgba(22,8,8,0.65) 100%); }
+.hero-stripe-block { position:absolute; top:0; right:0; width:260px; height:100%; clip-path:polygon(40% 0%,100% 0%,100% 100%,10% 100%); overflow:hidden; z-index:1; }
+.hero-stripe-block::before { content:''; position:absolute; inset:0; background:var(--stripe); opacity:0.12; }
+.hero-content { position:relative; z-index:2; max-width:1140px; margin:0 auto; padding:80px 48px; display:grid; grid-template-columns:1.15fr 0.85fr; gap:70px; align-items:center; width:100%; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:12px; color:var(--red); font-size:12px; font-weight:700; letter-spacing:3.5px; text-transform:uppercase; margin-bottom:20px; }
+.hero-eyebrow::before { content:''; width:32px; height:2px; background:var(--red); }
+.hero-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(46px,7vw,90px); line-height:0.9; text-transform:uppercase; margin-bottom:28px; letter-spacing:-1px; }
+.hero-title em { color:var(--red); font-style:normal; display:block; }
+.hero-sub { font-size:17px; color:#b0b0b0; line-height:1.8; margin-bottom:40px; max-width:440px; }
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.btn-red { background:var(--red); color:white; padding:15px 34px; text-decoration:none; font-weight:700; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px; transition:background .2s,transform .15s,box-shadow .2s; display:inline-flex; align-items:center; gap:8px; cursor:pointer; border:2px solid var(--red); }
+.btn-red:hover { background:var(--red-dark); border-color:var(--red-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(196,30,30,0.35); }
+.btn-ghost { border:2px solid rgba(255,255,255,0.22); color:#ddd; padding:15px 34px; text-decoration:none; font-weight:700; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px; transition:border-color .2s,color .2s,transform .15s; display:inline-flex; align-items:center; gap:8px; cursor:pointer; }
+.btn-ghost:hover { border-color:var(--red); color:var(--red); transform:translateY(-2px); }
+.btn-red svg, .btn-ghost svg { width:17px; height:17px; stroke:currentColor; }
+
+/* HERO CARDS FLIP */
+.hero-cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.hcard { perspective:800px; height:134px; cursor:pointer; }
+.hcard-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+.hcard:hover .hcard-inner { transform:rotateY(180deg); }
+.hcard-front, .hcard-back { position:absolute; inset:0; backface-visibility:hidden; border-radius:2px; padding:20px 18px; display:flex; flex-direction:column; justify-content:center; }
+.hcard-front { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.09); border-left:3px solid var(--red); }
+.hcard-back { background:var(--red); border:1px solid var(--red-dark); transform:rotateY(180deg); gap:6px; }
+.hcard-num { font-family:'Barlow Condensed',sans-serif; font-size:50px; font-weight:900; color:var(--red); line-height:1; }
+.hcard-lbl { font-size:12px; color:#777; margin-top:5px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; }
+.hcard-back-title { font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:1px; color:white; }
+.hcard-back-desc { font-size:13px; color:rgba(255,255,255,0.88); line-height:1.5; }
 
 /* TICKER */
-.ticker-wrap {
-  background: var(--red); height: 52px; overflow: hidden; position: relative; display: flex; align-items: center;
-}
-.ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; }
-.ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--red), transparent); }
-.ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--red), transparent); }
-.ticker-track {
-  display: flex; align-items: center; white-space: nowrap;
-  animation: ticker 18s linear infinite; will-change: transform;
-}
-.ticker-item {
-  display: inline-flex; align-items: center; gap: 18px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 17px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; padding: 0 32px;
-}
-.ticker-sep { color: rgba(255,255,255,0.35); font-size: 10px; }
-@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker-wrap { background:var(--red); height:52px; overflow:hidden; position:relative; display:flex; align-items:center; }
+.ticker-wrap::before,.ticker-wrap::after { content:''; position:absolute; top:0; bottom:0; width:60px; z-index:2; }
+.ticker-wrap::before { left:0; background:linear-gradient(to right,var(--red),transparent); }
+.ticker-wrap::after { right:0; background:linear-gradient(to left,var(--red),transparent); }
+.ticker-track { display:flex; align-items:center; white-space:nowrap; animation:ticker 18s linear infinite; will-change:transform; }
+.ticker-item { display:inline-flex; align-items:center; gap:18px; font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:700; letter-spacing:4px; text-transform:uppercase; padding:0 32px; }
+.ticker-sep { color:rgba(255,255,255,0.35); font-size:10px; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
 /* SECTIONS */
-.sec { padding: 96px 48px; }
-.sec-inner { max-width: 1140px; margin: 0 auto; }
-.sec-lbl {
-  display: inline-flex; align-items: center; gap: 10px;
-  color: var(--red); font-size: 11px; font-weight: 700;
-  letter-spacing: 3.5px; text-transform: uppercase; margin-bottom: 12px;
-}
-.sec-lbl::before { content: ''; width: 28px; height: 2px; background: var(--red); }
-.sec-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(28px, 5vw, 56px); font-weight: 900;
-  text-transform: uppercase; line-height: 0.95; margin-bottom: 56px;
-}
-.sec-title em { color: var(--red); font-style: normal; }
+.sec { padding:96px 48px; }
+.sec-inner { max-width:1140px; margin:0 auto; }
+.sec-lbl { display:inline-flex; align-items:center; gap:10px; color:var(--red); font-size:12px; font-weight:700; letter-spacing:3.5px; text-transform:uppercase; margin-bottom:12px; }
+.sec-lbl::before { content:''; width:28px; height:2px; background:var(--red); }
+.sec-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(32px,5vw,60px); font-weight:900; text-transform:uppercase; line-height:0.95; margin-bottom:56px; }
+.sec-title em { color:var(--red); font-style:normal; }
 
 /* SERVICES */
-.srv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; }
-.srv-card {
-  background: var(--dark2); padding: 36px 30px; position: relative; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.05); transition: transform .25s, box-shadow .25s;
-}
-.srv-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--red);
-  transform: scaleX(0); transform-origin: left; transition: transform .3s;
-}
-.srv-card:hover::before { transform: scaleX(1); }
-.srv-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(196,30,30,0.18); z-index: 1; }
-.srv-card-num {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 64px; font-weight: 900;
-  color: rgba(196,30,30,0.07); line-height: 1; position: absolute; top: 12px; right: 20px; pointer-events: none;
-}
-.srv-icon-wrap {
-  width: 52px; height: 52px; background: rgba(196,30,30,0.12); border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px; border: 1px solid rgba(196,30,30,0.22);
-}
-.srv-icon-wrap svg { width: 26px; height: 26px; stroke: var(--red); stroke-width: 1.8; }
-.srv-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
-.srv-card p { color: #666; font-size: 14px; line-height: 1.7; }
+#services { position:relative; background-color:#161616; }
+#services::before { content:''; position:absolute; inset:0; background-image:url('images/remi-photo.webp'); background-size:cover; background-position:center; background-repeat:no-repeat; opacity:0.22; filter:saturate(1.6) contrast(1.1); z-index:0; }
+#services .sec-inner { position:relative; z-index:1; }
+.srv-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; }
+.srv-card { background:rgba(20,20,20,0.88); padding:36px 22px; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.07); transition:transform .25s,box-shadow .25s,background .2s; display:flex; flex-direction:column; align-items:flex-start; }
+.srv-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+.srv-card:hover::before { transform:scaleX(1); }
+.srv-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(196,30,30,0.2); z-index:1; background:rgba(30,10,10,0.95); }
+.srv-card-num { font-family:'Barlow Condensed',sans-serif; font-size:64px; font-weight:900; color:rgba(196,30,30,0.07); line-height:1; position:absolute; top:12px; right:20px; pointer-events:none; }
+.srv-icon-wrap { width:72px; height:72px; background:rgba(196,30,30,0.14); border-radius:6px; display:flex; align-items:center; justify-content:center; margin-bottom:22px; border:1px solid rgba(196,30,30,0.28); flex-shrink:0; }
+.srv-icon-wrap svg { width:38px; height:38px; stroke:var(--red); stroke-width:1.6; }
+.srv-card h3 { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:700; text-transform:uppercase; margin-bottom:12px; letter-spacing:0.5px; line-height:1.15; }
+.srv-card p { color:#8a8a8a; font-size:14px; line-height:1.75; }
+.srv-card-clickable { cursor:pointer; }
+.srv-card-link-badge { margin-top:14px; display:inline-flex; align-items:center; gap:6px; color:var(--red); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+.srv-card-link-badge svg { width:13px; height:13px; stroke:currentColor; }
 
 /* À PROPOS */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.about-text p { color: #999; font-size: 15px; line-height: 1.85; margin-bottom: 20px; }
-.about-text p:last-child { margin-bottom: 0; }
-.about-text strong { color: white; }
-.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.astat {
-  background: var(--dark2); border: 1px solid rgba(255,255,255,0.06);
-  border-left: 3px solid var(--red); padding: 28px 24px; border-radius: 2px;
-  transition: transform .2s, background .2s;
-}
-.astat:hover { transform: translateY(-3px); background: rgba(196,30,30,0.06); }
-.astat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; color: var(--red); line-height: 1; }
-.astat-lbl { font-size: 11px; color: #666; margin-top: 6px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+.about-text p { color:#aaa; font-size:16px; line-height:1.85; margin-bottom:20px; }
+.about-text p:last-child { margin-bottom:0; }
+.about-text strong { color:white; }
+.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.astat { background:var(--dark2); border:1px solid rgba(255,255,255,0.07); border-left:3px solid var(--red); padding:28px 24px; border-radius:2px; transition:transform .2s,background .2s; }
+.astat:hover { transform:translateY(-3px); background:rgba(196,30,30,0.07); }
+.astat-num { font-family:'Barlow Condensed',sans-serif; font-size:50px; font-weight:900; color:var(--red); line-height:1; }
+.astat-lbl { font-size:12px; color:#777; margin-top:6px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; }
 
 /* MARQUES */
-.marques-sec { background: var(--dark); }
-.equip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 48px; }
-.equip-card {
-  background: var(--dark2); border: 1px solid rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
-}
-.equip-card:hover { border-color: var(--red); transform: translateY(-5px); box-shadow: 0 16px 44px rgba(196,30,30,0.22); }
-.equip-logo-zone {
-  width: 100%; background: #fff; display: flex; align-items: center; justify-content: center;
-  height: 140px; padding: 16px;
-}
-.equip-logo-zone img { max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain; }
-.equip-card-footer {
-  width: 100%; padding: 12px 16px;
-  display: flex; align-items: center; justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.equip-card-name { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-.equip-badge {
-  font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--red); background: rgba(196,30,30,0.12);
-  border: 1px solid rgba(196,30,30,0.2); padding: 3px 8px; border-radius: 2px;
-}
-.produits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.produit-card {
-  background: var(--dark2); border: 1px solid rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden;
-  transition: transform .25s, box-shadow .25s;
-}
-.produit-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(196,30,30,0.2); }
-.produit-top-accent { height: 4px; background: linear-gradient(90deg, var(--red), var(--red2)); }
-.produit-logo-zone {
-  display: flex; align-items: center; justify-content: center;
-  height: 180px; padding: 16px; background: #fff;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.produit-logo-zone img { max-width: 100%; max-height: 150px; width: auto; height: auto; object-fit: contain; }
-.produit-body { padding: 26px 28px 20px; }
-.produit-body h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
-.tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-.tag {
-  background: rgba(196,30,30,0.12); color: var(--red);
-  font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  padding: 4px 10px; border-radius: 2px; border: 1px solid rgba(196,30,30,0.22);
-}
-.produit-body p { color: #777; font-size: 14px; line-height: 1.75; }
-.produit-footer {
-  padding: 14px 28px; border-top: 1px solid rgba(255,255,255,0.05);
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-}
-.produit-footer a {
-  color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; text-decoration: none;
-  display: inline-flex; align-items: center; gap: 6px; transition: gap .2s; cursor: pointer;
-}
-.produit-footer a:hover { gap: 10px; }
-.mq-group-label {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
-  letter-spacing: 3.5px; text-transform: uppercase;
-  color: var(--red); display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
-}
-.mq-group-label::before { content: ''; flex: 0 0 28px; height: 2px; background: var(--red); }
-.mq-group-label::after  { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
-.mq-group { margin-bottom: 56px; }
+.marques-sec { background:var(--dark); }
+.equip-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:48px; }
+.equip-card { background:var(--dark2); border:1px solid rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; transition:border-color .25s,transform .25s,box-shadow .25s; display:flex; flex-direction:column; }
+.equip-card:hover { border-color:var(--red); transform:translateY(-5px); box-shadow:0 16px 44px rgba(196,30,30,0.22); }
+.equip-logo-zone { width:100%; background:#ffffff; display:flex; align-items:center; justify-content:center; height:160px; padding:24px; border-bottom:1px solid rgba(255,255,255,0.05); }
+.equip-logo-zone img { max-width:100%; max-height:120px; width:auto; height:auto; object-fit:contain; }
+.equip-card-body { padding:16px 18px 20px; flex:1; display:flex; flex-direction:column; gap:8px; }
+.equip-card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:4px; }
+.equip-card-name { font-family:'Barlow Condensed',sans-serif; font-size:19px; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+.equip-badge { font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); background:rgba(196,30,30,0.12); border:1px solid rgba(196,30,30,0.2); padding:3px 8px; border-radius:2px; white-space:nowrap; }
+.equip-card-desc { color:#777; font-size:14px; line-height:1.65; }
+.produits-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.produit-card { background:var(--dark2); border:1px solid rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; transition:transform .25s,box-shadow .25s; }
+.produit-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(196,30,30,0.2); }
+.produit-top-accent { height:4px; background:linear-gradient(90deg,var(--red),var(--red2)); }
+.produit-logo-zone { display:flex; align-items:center; justify-content:center; height:180px; padding:16px; background:#fff; border-bottom:1px solid rgba(255,255,255,0.06); }
+.produit-logo-zone img { max-width:100%; max-height:150px; width:auto; height:auto; object-fit:contain; }
+.produit-body { padding:26px 28px 20px; }
+.produit-body h3 { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:900; text-transform:uppercase; margin-bottom:10px; }
+.tag-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+.tag { background:rgba(196,30,30,0.12); color:var(--red); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 10px; border-radius:2px; border:1px solid rgba(196,30,30,0.22); }
+.produit-body p { color:#888; font-size:15px; line-height:1.75; }
+.produit-footer { padding:14px 28px; border-top:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.produit-footer a { color:var(--red); font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:gap .2s; cursor:pointer; }
+.produit-footer a:hover { gap:10px; }
+.mq-group-label { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700; letter-spacing:3.5px; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:14px; margin-bottom:28px; }
+.mq-group-label::before { content:''; flex:0 0 28px; height:2px; background:var(--red); }
+.mq-group-label::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.07); }
+.mq-group { margin-bottom:56px; }
 
 /* CONTACT */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
-.cinfo { display: flex; flex-direction: column; gap: 26px; }
-.citem { display: flex; align-items: flex-start; gap: 18px; }
-.cicon {
-  width: 46px; height: 46px; flex-shrink: 0;
-  background: rgba(196,30,30,0.1); border: 1px solid rgba(196,30,30,0.22);
-  border-radius: 4px; display: flex; align-items: center; justify-content: center;
-}
-.cicon svg { width: 20px; height: 20px; stroke: var(--red); stroke-width: 1.8; }
-.citem h4 { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-bottom: 6px; }
-.citem p, .citem a { color: white; font-size: 15px; text-decoration: none; font-weight: 500; line-height: 1.5; }
-.citem a:hover { color: var(--red); }
-.cform {
-  background: var(--dark2); border: 1px solid rgba(255,255,255,0.07);
-  padding: 40px; border-radius: 4px; position: relative; overflow: hidden;
-}
-.cform::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--red), var(--red2)); }
-.cform h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; margin-bottom: 28px; }
-.fg { margin-bottom: 18px; }
-.fg label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-bottom: 8px; }
-.fg input, .fg textarea, .fg select {
-  width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-  color: white; padding: 12px 16px; border-radius: 2px; font-family: 'Barlow', sans-serif;
-  font-size: 14px; transition: border-color .2s; outline: none;
-}
-.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--red); background: rgba(196,30,30,0.04); }
-.fg textarea { resize: vertical; min-height: 110px; }
-.fg select option { background: #1a1a1a; }
-.fsub {
-  width: 100%; background: var(--red); color: white; border: none;
-  padding: 14px; font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; cursor: pointer;
-  transition: background .2s, transform .15s;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-}
-.fsub:hover { background: var(--red-dark); transform: translateY(-1px); }
-.fsub:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.fsub svg { width: 16px; height: 16px; stroke: white; }
-.form-success {
-  display: none; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3);
-  border-left: 3px solid #22c55e; border-radius: 2px; padding: 18px 20px; margin-top: 16px;
-  color: #86efac; font-size: 14px; line-height: 1.6;
-}
-.form-success.show { display: flex; align-items: flex-start; gap: 12px; }
-.form-success svg { width: 18px; height: 18px; stroke: #22c55e; flex-shrink: 0; margin-top: 1px; }
-.form-error {
-  display: none; background: rgba(196,30,30,0.1); border: 1px solid rgba(196,30,30,0.3);
-  border-left: 3px solid var(--red); border-radius: 2px; padding: 18px 20px; margin-top: 16px;
-  color: #fca5a5; font-size: 14px; line-height: 1.6;
-}
-.form-error.show { display: flex; align-items: flex-start; gap: 12px; }
-.form-error svg { width: 18px; height: 18px; stroke: var(--red); flex-shrink: 0; margin-top: 1px; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+.cinfo { display:flex; flex-direction:column; gap:26px; }
+.citem { display:flex; align-items:flex-start; gap:18px; }
+.cicon { width:48px; height:48px; flex-shrink:0; background:rgba(196,30,30,0.1); border:1px solid rgba(196,30,30,0.22); border-radius:4px; display:flex; align-items:center; justify-content:center; }
+.cicon svg { width:22px; height:22px; stroke:var(--red); stroke-width:1.8; }
+.citem h4 { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#666; margin-bottom:6px; }
+.citem p,.citem a { color:white; font-size:16px; text-decoration:none; font-weight:500; line-height:1.5; }
+.citem a:hover { color:var(--red); }
+.cform { background:var(--dark2); border:1px solid rgba(255,255,255,0.08); padding:40px; border-radius:4px; position:relative; overflow:hidden; }
+.cform::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--red),var(--red2)); }
+.cform h3 { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:900; text-transform:uppercase; margin-bottom:28px; }
+.form-tabs { display:flex; gap:0; margin-bottom:28px; border:1px solid rgba(255,255,255,0.1); border-radius:2px; overflow:hidden; }
+.form-tab { flex:1; padding:11px 16px; background:rgba(255,255,255,0.03); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#666; cursor:pointer; transition:all .2s; border:none; font-family:'Barlow',sans-serif; border-right:1px solid rgba(255,255,255,0.08); }
+.form-tab:last-child { border-right:none; }
+.form-tab.active { background:var(--red); color:white; }
+.form-tab:not(.active):hover { background:rgba(196,30,30,0.1); color:#bbb; }
+.form-panel { display:none; }
+.form-panel.active { display:block; }
+.fg { margin-bottom:18px; }
+.fg label { display:block; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#666; margin-bottom:8px; }
+.fg input,.fg textarea,.fg select { width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:white; padding:13px 16px; border-radius:2px; font-family:'Barlow',sans-serif; font-size:15px; transition:border-color .2s; outline:none; }
+.fg input:focus,.fg textarea:focus,.fg select:focus { border-color:var(--red); background:rgba(196,30,30,0.05); }
+.fg textarea { resize:vertical; min-height:110px; }
+.fg select option { background:#1a1a1a; }
+.fg-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.fsub { width:100%; background:var(--red); color:white; border:none; padding:15px; font-family:'Barlow',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; border-radius:2px; cursor:pointer; transition:background .2s,transform .15s; display:flex; align-items:center; justify-content:center; gap:8px; }
+.fsub:hover { background:var(--red-dark); transform:translateY(-1px); }
+.fsub:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+.fsub svg { width:16px; height:16px; stroke:white; }
+.form-success { display:none; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.3); border-left:3px solid #22c55e; border-radius:2px; padding:18px 20px; margin-top:16px; color:#86efac; font-size:15px; line-height:1.6; }
+.form-success.show { display:flex; align-items:flex-start; gap:12px; }
+.form-success svg { width:18px; height:18px; stroke:#22c55e; flex-shrink:0; margin-top:1px; }
+.form-error { display:none; background:rgba(196,30,30,0.1); border:1px solid rgba(196,30,30,0.3); border-left:3px solid var(--red); border-radius:2px; padding:18px 20px; margin-top:16px; color:#fca5a5; font-size:15px; line-height:1.6; }
+.form-error.show { display:flex; align-items:flex-start; gap:12px; }
+.form-error svg { width:18px; height:18px; stroke:var(--red); flex-shrink:0; margin-top:1px; }
+.compte-note { background:rgba(196,30,30,0.07); border:1px solid rgba(196,30,30,0.18); border-left:3px solid var(--red); padding:14px 16px; border-radius:2px; color:#bbb; font-size:14px; line-height:1.6; margin-bottom:20px; }
+.compte-note strong { color:var(--red); }
 
-/* FOOTER */
-footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48px 28px; }
-.foot-inner {
-  max-width: 1140px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 48px;
-}
-.foot-logo-wrap { padding: 10px 0; display: inline-flex; align-items: center; margin-bottom: 18px; }
-.foot-logo-wrap img { height: 56px; width: auto; display: block; }
-.foot-tagline {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
-  letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 10px;
-}
-.foot-brand p { color: #555; font-size: 13px; line-height: 1.8; max-width: 280px; }
-.foot-col h4 {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
-  letter-spacing: 3px; text-transform: uppercase; color: #555; margin-bottom: 18px;
-}
-.foot-col a {
-  display: flex; align-items: center; gap: 8px;
-  color: #333; text-decoration: none; font-size: 13px;
-  margin-bottom: 10px; transition: color .2s; cursor: pointer;
-}
-.foot-col a svg { width: 14px; height: 14px; stroke: #aaa; flex-shrink: 0; }
-.foot-col a:hover { color: var(--red); }
-.social-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
-.sbtn {
-  display: flex; align-items: center; gap: 8px;
-  background: #f5f5f5; border: 1px solid #ddd; color: #555; text-decoration: none;
-  padding: 9px 16px; border-radius: 2px; font-size: 11px; font-weight: 700;
-  letter-spacing: 1px; text-transform: uppercase; transition: all .2s;
-}
-.sbtn:hover { background: var(--red); border-color: var(--red); color: white; }
-.sbtn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
-.foot-bottom { border-top: 1px solid #eee; padding-top: 24px; text-align: center; color: #aaa; font-size: 12px; }
+/* FOOTER — fond blanc */
+footer { background:#ffffff; border-top:3px solid var(--red); padding:56px 48px 28px; }
+.foot-inner { max-width:1140px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:64px; margin-bottom:48px; }
+.foot-logo-wrap { padding:10px 0; display:inline-flex; align-items:center; margin-bottom:18px; }
+.foot-logo-wrap img { height:72px; width:auto; display:block; }
+.foot-tagline { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+.foot-brand p { color:#555; font-size:14px; line-height:1.8; max-width:280px; }
+.foot-col h4 { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#888; margin-bottom:18px; }
+.foot-col a { display:flex; align-items:center; gap:8px; color:#333; text-decoration:none; font-size:14px; margin-bottom:11px; transition:color .2s; cursor:pointer; }
+.foot-col a svg { width:14px; height:14px; stroke:#aaa; flex-shrink:0; }
+.foot-col a:hover { color:var(--red); }
+
+/* Réseaux sociaux */
+.social-row { display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+.sbtn { display:flex; align-items:center; gap:9px; background:#f4f4f4; border:1px solid #ddd; color:#444; text-decoration:none; padding:10px 16px; border-radius:6px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; transition:all .22s; }
+.sbtn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.15); }
+.sbtn svg { width:18px; height:18px; flex-shrink:0; }
+.sbtn-fb svg { fill:#1877F2; }
+.sbtn-fb:hover { background:#1877F2; border-color:#1877F2; color:white; }
+.sbtn-fb:hover svg { fill:white; }
+.sbtn-ig:hover { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color:#dc2743; color:white; }
+.sbtn-ig:hover svg { fill:white; }
+.sbtn-tt:hover { background:#111; border-color:#ff0050; color:#ff0050; }
+.sbtn-li svg { fill:#0077B5; }
+.sbtn-li:hover { background:#0077B5; border-color:#0077B5; color:white; }
+.sbtn-li:hover svg { fill:white; }
+.foot-bottom { border-top:1px solid #eee; padding-top:24px; text-align:center; color:#999; font-size:13px; }
 
 /* ANIMATIONS */
 @keyframes fadeUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
-.hero-eyebrow { animation: fadeUp .5s ease both; }
-.hero-title    { animation: fadeUp .55s .1s ease both; }
-.hero-sub      { animation: fadeUp .55s .2s ease both; }
-.hero-btns     { animation: fadeUp .55s .3s ease both; }
-.hero-cards    { animation: fadeUp .55s .4s ease both; }
+.hero-eyebrow { animation:fadeUp .5s ease both; }
+.hero-title    { animation:fadeUp .55s .1s ease both; }
+.hero-sub      { animation:fadeUp .55s .2s ease both; }
+.hero-btns     { animation:fadeUp .55s .3s ease both; }
+.hero-cards    { animation:fadeUp .55s .4s ease both; }
 @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 
 /* RESPONSIVE */
+@media(max-width:1200px) { .srv-grid { grid-template-columns:repeat(3,1fr); } }
 @media(max-width:1024px) {
-  nav { padding: 0 24px; }
-  .nav-cta { margin-right: -24px; padding-right: 24px; }
-  .hero-content { padding: 60px 24px; gap: 40px; }
-  .sec { padding: 72px 24px; }
-  footer { padding: 48px 24px 24px; }
-  .foot-inner { grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 36px; }
-  .foot-brand { grid-column: 1 / -1; }
-  .equip-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-grid { gap: 40px; }
-  .about-grid { gap: 40px; }
+  nav { padding:0 24px; } .nav-cta { margin-right:-24px; padding-right:24px; }
+  .hero-content { padding:60px 24px; gap:40px; } .sec { padding:72px 24px; }
+  footer { padding:48px 24px 24px; }
+  .foot-inner { grid-template-columns:1fr 1fr; gap:40px; margin-bottom:36px; }
+  .foot-brand { grid-column:1 / -1; }
+  .equip-grid { grid-template-columns:repeat(2,1fr); }
+  .contact-grid { gap:40px; } .about-grid { gap:40px; }
 }
 @media(max-width:900px) {
-  .hero-content { grid-template-columns: 1fr; }
-  .hero-cards { display: none; }
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .produits-grid { grid-template-columns: 1fr; }
-  .srv-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-content { grid-template-columns:1fr; } .hero-cards { display:none; }
+  .contact-grid { grid-template-columns:1fr; gap:40px; }
+  .produits-grid { grid-template-columns:1fr; } .srv-grid { grid-template-columns:repeat(2,1fr); }
+  .about-grid { grid-template-columns:1fr; gap:40px; } .fg-row { grid-template-columns:1fr; }
 }
 @media(max-width:640px) {
-  nav { padding: 0 20px; height: 64px; }
-  .nav-logo img { height: 38px; }
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
-  .nav-hamburger { display: flex; margin-right: -20px; padding-right: 20px; }
-  .hero { padding-top: 64px; }
-  .hero-content { padding: 44px 20px; gap: 28px; }
-  .hero-title { font-size: clamp(38px, 11vw, 56px); margin-bottom: 20px; }
-  .hero-sub { font-size: 14px; margin-bottom: 32px; }
-  .hero-btns { flex-direction: column; gap: 10px; }
-  .btn-red, .btn-ghost { width: 100%; justify-content: center; padding: 14px 20px; }
-  .hero-stripe-block { width: 120px; }
-  .ticker-item { font-size: 14px; padding: 0 20px; letter-spacing: 3px; }
-  .sec { padding: 56px 20px; }
-  .sec-title { margin-bottom: 36px; }
-  .srv-grid { grid-template-columns: 1fr; gap: 2px; }
-  .equip-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 32px; }
-  .equip-logo-zone { height: 110px; }
-  .equip-card-footer { padding: 10px 12px; }
-  .equip-card-name { font-size: 13px; }
-  .equip-badge { display: none; }
-  .produits-grid { grid-template-columns: 1fr; }
-  .produit-logo-zone { height: 140px; }
-  .produit-body { padding: 20px 20px 14px; }
-  .produit-footer { padding: 12px 20px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-  .cform { padding: 28px 20px; }
-  .citem { gap: 14px; }
-  .citem p, .citem a { font-size: 14px; }
-  footer { padding: 40px 20px 20px; }
-  .foot-inner { grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
-  .foot-brand { grid-column: auto; }
-  .foot-logo-wrap img { height: 44px; }
-  .foot-bottom { font-size: 11px; line-height: 1.8; }
-  .about-stats { grid-template-columns: 1fr 1fr; }
-  .astat { padding: 20px 16px; }
-  .astat-num { font-size: 36px; }
+  nav { padding:0 20px; height:64px; } .nav-logo img { height:40px; }
+  .nav-links { display:none; } .nav-cta { display:none; }
+  .nav-hamburger { display:flex; margin-right:-20px; padding-right:20px; }
+  .hero { padding-top:64px; } .hero-content { padding:44px 20px; gap:28px; }
+  .hero-title { font-size:clamp(38px,11vw,56px); margin-bottom:20px; }
+  .hero-sub { font-size:15px; margin-bottom:32px; }
+  .hero-btns { flex-direction:column; gap:10px; }
+  .btn-red,.btn-ghost { width:100%; justify-content:center; padding:14px 20px; }
+  .hero-stripe-block { width:120px; }
+  .ticker-item { font-size:15px; padding:0 20px; letter-spacing:3px; }
+  .sec { padding:56px 20px; } .sec-title { margin-bottom:36px; }
+  .srv-grid { grid-template-columns:1fr; gap:2px; }
+  .equip-grid { grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:32px; }
+  .equip-logo-zone { height:110px; } .equip-badge { display:none; }
+  .produits-grid { grid-template-columns:1fr; }
+  .produit-logo-zone { height:140px; } .produit-body { padding:20px 20px 14px; }
+  .produit-footer { padding:12px 20px; }
+  .contact-grid { grid-template-columns:1fr; gap:32px; } .cform { padding:28px 20px; }
+  .citem { gap:14px; } .citem p,.citem a { font-size:15px; }
+  footer { padding:40px 20px 20px; }
+  .foot-inner { grid-template-columns:1fr; gap:32px; margin-bottom:32px; }
+  .foot-brand { grid-column:auto; } .foot-logo-wrap img { height:56px; }
+  .foot-bottom { font-size:12px; line-height:1.8; }
+  .about-stats { grid-template-columns:1fr 1fr; } .astat { padding:20px 16px; } .astat-num { font-size:38px; }
+  .form-tabs { flex-direction:column; }
 }
 @media(max-width:380px) {
-  .hero-title { font-size: 36px; }
-  .equip-grid { grid-template-columns: 1fr; }
-  .cform { padding: 22px 16px; }
+  .hero-title { font-size:36px; } .equip-grid { grid-template-columns:1fr; } .cform { padding:22px 16px; }
 }
 </style>
 </head>
@@ -474,26 +299,11 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="closeMenu(); goSection('services')">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
-    Services
-  </a>
-  <a onclick="closeMenu(); goSection('marques')">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/></svg>
-    Marques
-  </a>
-  <a onclick="closeMenu(); goSection('about')">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
-    À propos
-  </a>
-  <a onclick="closeMenu(); goSection('contact')">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
-    Contact
-  </a>
-  <a href="tel:5147365555" class="mob-cta">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>
-    514-736-5555
-  </a>
+  <a onclick="closeMenu();goSection('services')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>Services</a>
+  <a onclick="closeMenu();goSection('marques')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/></svg>Marques</a>
+  <a onclick="closeMenu();goSection('about')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>À propos</a>
+  <a onclick="closeMenu();goSection('contact')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>Contact</a>
+  <a href="tel:5147365555" class="mob-cta"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>514-736-5555</a>
 </div>
 
 <!-- HERO -->
@@ -504,7 +314,7 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
     <div class="hero-content">
       <div>
         <div class="hero-eyebrow">· Canada</div>
-        <h1 class="hero-title">Qualité,<br>Performance<br><em>&amp; Service</em><br>Garanti</h1>
+        <h1 class="hero-title">Qualité,<br>Performance<br><em>&amp; Service</em>Garanti</h1>
         <p class="hero-sub">Spécialistes en équipements extérieurs et matériel de jardinage. Vente, service, réparation et distribution professionnelle depuis 2021.</p>
         <div class="hero-btns">
           <span class="btn-red" onclick="goSection('contact')">
@@ -518,23 +328,27 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
         </div>
       </div>
       <div class="hero-cards">
-        <div class="hcard"><div class="hcard-num">100%</div><div class="hcard-lbl">Professionnel certifié</div></div>
-        <div class="hcard"><div class="hcard-num">✓</div><div class="hcard-lbl">Réparation garantie</div></div>
-        <div class="hcard"><div class="hcard-num">+</div><div class="hcard-lbl">Distribution rapide</div></div>
-        <div class="hcard"><div class="hcard-num">QC</div><div class="hcard-lbl">Montréal &amp; environs</div></div>
+        <div class="hcard"><div class="hcard-inner">
+          <div class="hcard-front"><div class="hcard-num">100%</div><div class="hcard-lbl">Professionnel certifié</div></div>
+          <div class="hcard-back"><div class="hcard-back-title">Certifié Pro</div><div class="hcard-back-desc">Techniciens formés et accrédités par les fabricants pour des interventions de qualité.</div></div>
+        </div></div>
+        <div class="hcard"><div class="hcard-inner">
+          <div class="hcard-front"><div class="hcard-num">✓</div><div class="hcard-lbl">Réparation garantie</div></div>
+          <div class="hcard-back"><div class="hcard-back-title">Garantie incluse</div><div class="hcard-back-desc">Chaque réparation est couverte par une garantie de travail. Votre satisfaction assurée.</div></div>
+        </div></div>
+        <div class="hcard"><div class="hcard-inner">
+          <div class="hcard-front"><div class="hcard-num">+</div><div class="hcard-lbl">Distribution rapide</div></div>
+          <div class="hcard-back"><div class="hcard-back-title">Livraison Express</div><div class="hcard-back-desc">Réseau étendu à Montréal et partout au Québec. Délais optimisés pour vous.</div></div>
+        </div></div>
+        <div class="hcard"><div class="hcard-inner">
+          <div class="hcard-front"><div class="hcard-num">QC</div><div class="hcard-lbl">Montréal &amp; environs</div></div>
+          <div class="hcard-back"><div class="hcard-back-title">Service Local</div><div class="hcard-back-desc">Basé à Montréal, nous desservons tout le Québec avec réactivité et proximité.</div></div>
+        </div></div>
       </div>
     </div>
   </div>
   <div class="ticker-wrap">
     <div class="ticker-track">
-      <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
-      <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
-      <div class="ticker-item">Réparation <span class="ticker-sep">◼</span></div>
-      <div class="ticker-item">Distribution <span class="ticker-sep">◼</span></div>
-      <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
-      <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
-      <div class="ticker-item">Réparation <span class="ticker-sep">◼</span></div>
-      <div class="ticker-item">Distribution <span class="ticker-sep">◼</span></div>
       <div class="ticker-item">Vente <span class="ticker-sep">◼</span></div>
       <div class="ticker-item">Service <span class="ticker-sep">◼</span></div>
       <div class="ticker-item">Réparation <span class="ticker-sep">◼</span></div>
@@ -561,44 +375,75 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
     <div class="sec-lbl">Ce que nous offrons</div>
     <h2 class="sec-title">Nos <em>Services</em></h2>
     <div class="srv-grid">
+
       <div class="srv-card">
         <div class="srv-card-num">01</div>
         <div class="srv-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg></div>
         <h3>Solutions Espaces Verts</h3>
-        <p>Solutions professionnelles complètes pour vos espaces verts.</p>
+        <p>Solutions professionnelles complètes pour vos espaces verts, gazons et aménagements extérieurs.</p>
       </div>
+
       <div class="srv-card">
         <div class="srv-card-num">02</div>
         <div class="srv-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/></svg></div>
         <h3>Vente d'Équipements</h3>
-        <p>Large gamme d'équipements de jardinage et d'extérieur de qualité professionnelle — tondeuses, débroussailleuses, souffleuses et plus.</p>
+        <p>Large gamme d'équipements professionnels — tondeuses, débroussailleuses, souffleuses et plus.</p>
       </div>
+
       <div class="srv-card">
         <div class="srv-card-num">03</div>
         <div class="srv-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg></div>
         <h3>Service &amp; Réparation</h3>
-        <p>Techniciens certifiés pour l'entretien et la réparation de tous vos équipements motorisés extérieurs, toutes marques.</p>
+        <p>Techniciens certifiés pour l'entretien et la réparation de tous équipements motorisés, toutes marques.</p>
       </div>
-      <div class="srv-card">
+
+      <div class="srv-card srv-card-clickable" onclick="goSection('contact')">
         <div class="srv-card-num">04</div>
         <div class="srv-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg></div>
         <h3>Distribution Professionnelle</h3>
-        <p>Distribution grossiste pour détaillants, pépiniéristes et quincailleries. Réseau étendu à Montréal et partout au Québec.</p>
+        <p>Grossiste pour distributeurs et revendeurs.</p>
+        <span class="srv-card-link-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+          Nous contacter
+        </span>
       </div>
+
+      <!-- CARTE 5 : clique contact, icône fourgonnette livraison -->
+      <div class="srv-card ">
+        <div class="srv-card-num">05</div>
+        <div class="srv-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:38px;height:38px;">
+            <path d="M1 10L1 16C1 16.5523 1.44772 17 2 17H3"/>
+            <path d="M17 17H19C19.5523 17 20 16.5523 20 16V12L17.5 7H14C13.4477 7 13 7.44772 13 8V17"/>
+            <path d="M13 10H18.5L20 13H13V10Z"/>
+            <path d="M1 8C1 7.44772 1.44772 7 2 7H13"/>
+            <path d="M1 12H13"/>
+            <circle cx="6" cy="17" r="2"/>
+            <circle cx="17" cy="17" r="2"/>
+            <path d="M8 17H13"/>
+          </svg>
+        </div>
+        <h3>Ramassage &amp; Livraison</h3>
+        <p>Service de ramassage et de livraison pour tous vos équipements, à votre convenance.</p>
+        
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- À PROPOS -->
-<section class="sec" id="about" style="background: var(--dark);">
+<section class="sec" id="about" style="background:var(--dark);">
   <div class="sec-inner">
     <div class="sec-lbl">Qui sommes-nous</div>
     <h2 class="sec-title">À <em>Propos</em></h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>Fondée en 2021 à Montréal, <strong>Équipements Gariani</strong> est une entreprise spécialisée dans la vente, le service et la distribution d'équipements extérieurs et de matériel de jardinage professionnel.</p>
-        <p>Nous servons aussi bien les particuliers que les entreprises paysagistes, les municipalités et les détaillants à travers le Québec. Notre équipe de techniciens certifiés assure un service après-vente fiable et rapide pour toutes les marques.</p>
-        <p>Distributeur exclusif de <strong>Fertivert</strong> et <strong>Pulvert</strong>, et partenaire officiel de marques reconnues comme Stihl, Weibang, Staub et Agricut, Gariani vous offre le meilleur de l'équipement professionnel au Québec.</p>
+       <p>Équipements Gariani est une entreprise spécialisée dans la distribution d’équipements motorisés extérieurs et d’intrants connexes. Conçue comme un guichet unique, elle dessert aussi bien une clientèle individuelle que des professionnels, entrepreneurs paysagistes et municipalités.</p>
+
+<p>En parallèle de ses activités de vente directe, l’entreprise agit comme grossiste et distributeur pour plusieurs marques, à travers un réseau de détaillants, pépiniéristes et quincailleries.</p>
+
+<p>Équipements Gariani se distingue par sa connaissance du marché nord-américain, son approche terrain et sa capacité à structurer des solutions adaptées aux réalités opérationnelles de ses partenaires.</p>
       </div>
       <div class="about-stats">
         <div class="astat"><div class="astat-num">2021</div><div class="astat-lbl">Année de fondation</div></div>
@@ -614,31 +459,45 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
 <section class="sec marques-sec" id="marques">
   <div class="sec-inner">
     <div style="padding-top:40px;">
-      <div class="sec-lbl" style="justify-content:center; display:flex;">Nos partenaires exclusifs</div>
-      <h2 class="sec-title" style="text-align:center; margin-bottom:16px;">Nos <em>Marques</em></h2>
-      <p style="color:#555; max-width:540px; margin:0 auto; font-size:15px; line-height:1.8; text-align:center;">Gariani distribue, vend et entretient les meilleures marques professionnelles du marché au Québec.</p>
+      <div class="sec-lbl" style="justify-content:center;display:flex;">Nos partenaires exclusifs</div>
+      <h2 class="sec-title" style="text-align:center;margin-bottom:16px;">Nos <em>Marques</em></h2>
+      <p style="color:#777;max-width:540px;margin:0 auto;font-size:16px;line-height:1.8;text-align:center;">Gariani distribue, vend et entretient les meilleures marques professionnelles du marché au Québec.</p>
       <div style="margin-top:56px;">
+
         <div class="mq-group">
           <div class="mq-group-label">Équipements &amp; Matériel Motorisé</div>
           <div class="equip-grid">
             <div class="equip-card">
               <div class="equip-logo-zone"><img src="images/LOGO AGRICUt.png" alt="Agricut"></div>
-              <div class="equip-card-footer"><span class="equip-card-name">Agricut</span><span class="equip-badge">Équipement</span></div>
+              <div class="equip-card-body">
+                <div class="equip-card-header"><span class="equip-card-name">Agricut</span><span class="equip-badge">Équipement</span></div>
+                <p class="equip-card-desc">Équipements agricoles et de jardinage robustes, conçus pour les professionnels exigeants du secteur.</p>
+              </div>
             </div>
             <div class="equip-card">
               <div class="equip-logo-zone"><img src="images/LOGO STAUB.png" alt="Staub"></div>
-              <div class="equip-card-footer"><span class="equip-card-name">Staub</span><span class="equip-badge">Équipement</span></div>
+              <div class="equip-card-body">
+                <div class="equip-card-header"><span class="equip-card-name">Staub</span><span class="equip-badge">Équipement</span></div>
+                <p class="equip-card-desc">Motoculteurs et fraises à neige de haute performance, référence en entretien d'espaces extérieurs.</p>
+              </div>
             </div>
             <div class="equip-card">
               <div class="equip-logo-zone"><img src="images/LOGO STHIL.png" alt="Stihl"></div>
-              <div class="equip-card-footer"><span class="equip-card-name">Stihl</span><span class="equip-badge">Équipement</span></div>
+              <div class="equip-card-body">
+                <div class="equip-card-header"><span class="equip-card-name">Stihl</span><span class="equip-badge">Équipement</span></div>
+                <p class="equip-card-desc">Leader mondial en tronçonneuses, débroussailleuses et outils motorisés professionnels depuis 1926.</p>
+              </div>
             </div>
             <div class="equip-card">
               <div class="equip-logo-zone"><img src="images/LOGO WEIBANG.png" alt="Weibang"></div>
-              <div class="equip-card-footer"><span class="equip-card-name">Weibang</span><span class="equip-badge">Équipement</span></div>
+              <div class="equip-card-body">
+                <div class="equip-card-header"><span class="equip-card-name">Weibang</span><span class="equip-badge">Équipement</span></div>
+                <p class="equip-card-desc">Tondeuses professionnelles à traction et robots de tonte innovants pour terrains résidentiels et commerciaux.</p>
+              </div>
             </div>
           </div>
         </div>
+
         <div class="mq-group">
           <div class="mq-group-label">Produits &amp; Traitements Professionnels</div>
           <div class="produits-grid">
@@ -650,10 +509,7 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
                 <div class="tag-row"><span class="tag">Fertilisants</span><span class="tag">Espaces verts</span><span class="tag">Pro</span></div>
                 <p>Solutions de fertilisation professionnelle pour espaces verts, gazons et cultures ornementales. Gamme complète formulée pour les professionnels du paysage et de l'horticulture au Québec.</p>
               </div>
-              <div class="produit-footer">
-                <a onclick="goSection('contact')">Demander un devis →</a>
-                <span class="tag" style="font-size:9px;">Distributeur exclusif</span>
-              </div>
+              <div class="produit-footer"><a onclick="goSection('contact')">Demander un devis →</a><span class="tag" style="font-size:10px;">Distributeur exclusif</span></div>
             </div>
             <div class="produit-card">
               <div class="produit-top-accent"></div>
@@ -663,13 +519,11 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
                 <div class="tag-row"><span class="tag">Pulvérisateurs</span><span class="tag">Traitement</span><span class="tag">Pro</span></div>
                 <p>Équipements de pulvérisation et produits de traitement professionnels pour l'entretien des espaces verts. Solutions adaptées aux paysagistes, entrepreneurs et municipalités.</p>
               </div>
-              <div class="produit-footer">
-                <a onclick="goSection('contact')">Demander un devis →</a>
-                <span class="tag" style="font-size:9px;">Distributeur exclusif</span>
-              </div>
+              <div class="produit-footer"><a onclick="goSection('contact')">Demander un devis →</a><span class="tag" style="font-size:10px;">Distributeur exclusif</span></div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -695,71 +549,112 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
           <div><h4>E-mail</h4><a href="mailto:info@equipementsgariani.ca">info@equipementsgariani.ca</a></div>
         </div>
       </div>
-
       <div class="cform">
-        <h3>Envoyez-nous un message</h3>
-        <!-- ⚠️ REMPLACEZ xxxxxxxxxxx par votre vrai ID Formspree -->
-        <form id="contactForm" method="POST" action="https://formspree.io/f/xxxxxxxxxxx">
-          <!-- Anti-spam honeypot -->
-          <input type="text" name="_gotcha" style="display:none">
-          <!-- Sujet de l'email reçu -->
-          <input type="hidden" name="_subject" value="Nouveau message — Équipements Gariani">
-
-          <div class="fg">
-            <label for="nom">Nom complet</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-          </div>
-          <div class="fg">
-            <label for="email">Adresse e-mail</label>
-            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-          </div>
-          <div class="fg">
-            <label for="telephone">Téléphone</label>
-            <input type="tel" id="telephone" name="telephone" placeholder="514-xxx-xxxx">
-          </div>
-          <div class="fg">
-            <label for="sujet">Sujet</label>
-            <select id="sujet" name="sujet">
-              <option>Demande de service</option>
-              <option>Réparation d'équipement</option>
-              <option>Achat d'équipement</option>
-              <option>Distribution / Grossiste</option>
-              <option>Produits Fertivert</option>
-              <option>Produits Pulvert</option>
-              <option>Autre</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Décrivez votre demande..."></textarea>
-          </div>
-
-          <button type="submit" class="fsub" id="submitBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-            Envoyer le message
+        <h3>Écrivez-nous</h3>
+        <div class="form-tabs">
+          <button class="form-tab active" id="tab-message" onclick="openTab('message')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px;vertical-align:middle;margin-right:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            Envoyer un message
           </button>
-
-          <div class="form-success" id="formSuccess">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <div><strong>Message envoyé !</strong><br>Nous vous répondrons dans les plus brefs délais.</div>
-          </div>
-          <div class="form-error" id="formError">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
-            <div><strong>Une erreur est survenue.</strong><br>Veuillez réessayer ou nous appeler au <a href="tel:5147365555" style="color:#fca5a5;">514-736-5555</a></div>
-          </div>
-        </form>
+          <button class="form-tab" id="tab-compte" onclick="openTab('compte')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px;vertical-align:middle;margin-right:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+            Créer un compte
+          </button>
+        </div>
+        <div class="form-panel active" id="panel-message">
+          <form id="contactForm" method="POST" action="https://formspree.io/f/xxxxxxxxxxx">
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="_subject" value="Nouveau message — Équipements Gariani">
+            <div class="fg"><label for="nom">Nom complet</label><input type="text" id="nom" name="nom" placeholder="Votre nom" required></div>
+            <div class="fg"><label for="email">Adresse e-mail</label><input type="email" id="email" name="email" placeholder="votre@email.com" required></div>
+            <div class="fg"><label for="telephone">Téléphone</label><input type="tel" id="telephone" name="telephone" placeholder="514-xxx-xxxx"></div>
+            <div class="fg"><label for="sujet">Sujet</label>
+              <select id="sujet" name="sujet">
+                <option>Demande de service</option><option>Réparation d'équipement</option><option>Achat d'équipement</option><option>Distribution / Grossiste</option><option>Produits Fertivert</option><option>Produits Pulvert</option><option>Autre</option>
+              </select>
+            </div>
+            <div class="fg"><label for="message">Message</label><textarea id="message" name="message" placeholder="Décrivez votre demande..."></textarea></div>
+            <button type="submit" class="fsub" id="submitBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+              Envoyer le message
+            </button>
+            <div class="form-success" id="formSuccess"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><strong>Message envoyé !</strong><br>Nous vous répondrons dans les plus brefs délais.</div></div>
+            <div class="form-error" id="formError"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg><div><strong>Une erreur est survenue.</strong><br>Appelez-nous au <a href="tel:5147365555" style="color:#fca5a5;">514-736-5555</a></div></div>
+          </form>
+        </div>
+        <div class="form-panel" id="panel-compte">
+          <div class="compte-note"><strong>Compte distributeur / professionnel</strong> — Accédez aux tarifs grossistes, commandes en ligne et suivi d'équipements.</div>
+          <form id="compteForm" method="POST" action="https://formspree.io/f/xxxxxxxxxxx">
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="_subject" value="Création de compte — Équipements Gariani">
+            <div class="fg-row">
+              <div class="fg"><label for="c-prenom">Prénom</label><input type="text" id="c-prenom" name="prenom" placeholder="Prénom" required></div>
+              <div class="fg"><label for="c-nom">Nom</label><input type="text" id="c-nom" name="nom" placeholder="Nom" required></div>
+            </div>
+            <div class="fg"><label for="c-entreprise">Nom de l'entreprise</label><input type="text" id="c-entreprise" name="entreprise" placeholder="Votre entreprise" required></div>
+            <div class="fg"><label for="c-type">Type de compte</label>
+              <select id="c-type" name="type_compte">
+                <option>Distributeur / Revendeur</option><option>Pépiniériste</option><option>Entrepreneur paysagiste</option><option>Municipalité</option><option>Quincaillerie</option><option>Autre professionnel</option>
+              </select>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label for="c-email">E-mail professionnel</label><input type="email" id="c-email" name="email" placeholder="votre@entreprise.com" required></div>
+              <div class="fg"><label for="c-tel">Téléphone</label><input type="tel" id="c-tel" name="telephone" placeholder="514-xxx-xxxx" required></div>
+            </div>
+            <div class="fg"><label for="c-adresse">Adresse</label><input type="text" id="c-adresse" name="adresse" placeholder="Rue, Ville, Province"></div>
+            <div class="fg"><label for="c-notes">Besoins complémentaires</label><textarea id="c-notes" name="notes" placeholder="Décrivez vos besoins..." style="min-height:80px;"></textarea></div>
+            <button type="submit" class="fsub" id="compteSubmitBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+              Créer mon compte
+            </button>
+            <div class="form-success" id="compteSuccess"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><strong>Demande envoyée !</strong><br>Notre équipe validera votre compte sous 24h.</div></div>
+            <div class="form-error" id="compteError"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg><div><strong>Erreur.</strong><br><a href="tel:5147365555" style="color:#fca5a5;">514-736-5555</a></div></div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER — fond blanc -->
 <footer>
   <div class="foot-inner">
     <div class="foot-brand">
       <div class="foot-logo-wrap"><img src="images/LOGO EQUIPEENT GARIANI.png" alt="Équipements Gariani"></div>
       <div class="foot-tagline">Vente · Service · Distribution</div>
       <p>Spécialistes en équipements extérieurs et matériel de jardinage à Montréal depuis 2021. Service professionnel garanti pour particuliers et entreprises.</p>
+      <div class="social-row">
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/people/les-%C3%A9quipements-ghariani/61576408641587/" target="_blank" class="sbtn sbtn-fb">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/equipementsgariani/" target="_blank" class="sbtn sbtn-ig">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="ig-g" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
+            <path fill="url(#ig-g)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          Instagram
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@equipementsgariani" target="_blank" class="sbtn sbtn-tt">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;">
+            <path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/>
+          </svg>
+          TikTok
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/%C3%A9quipements-gariani/?viewAsMember=true" target="_blank" class="sbtn sbtn-li">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+
+      </div>
     </div>
     <div class="foot-col">
       <h4>Navigation</h4>
@@ -774,17 +669,6 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
       <a href="tel:5147365555"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg> 514-736-5555</a>
       <a href="mailto:info@equipementsgariani.ca"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg> info@equipementsgariani.ca</a>
       <a href="https://maps.google.com/?q=3817+Rue+Jean-Talon+Ouest+Montreal" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg> 3817 Jean-Talon O., MTL</a>
-      <h4 style="margin-top:22px;">Suivez-nous</h4>
-      <div class="social-row">
-        <a href="https://www.facebook.com/people/les-%C3%A9quipements-ghariani/61576408641587/" target="_blank" class="sbtn" style="color:#1877F2;">
-          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Facebook
-        </a>
-        <a href="https://www.linkedin.com/company/%C3%A9quipements-gariani/about/" target="_blank" class="sbtn" style="color:#0077B5;">
-          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-      </div>
     </div>
   </div>
   <div class="foot-bottom">
@@ -793,56 +677,26 @@ footer { background: #ffffff; border-top: 3px solid var(--red); padding: 56px 48
 </footer>
 
 <script>
-function goSection(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
-}
-function closeMenu() {
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-}
-document.addEventListener('click', function(e) {
-  const menu = document.getElementById('mobileMenu');
-  const btn  = document.getElementById('hamburger');
-  if (!menu.contains(e.target) && !btn.contains(e.target)) {
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-  }
+function goSection(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('hamburger').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');}
+document.addEventListener('click',function(e){const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburger');if(!m.contains(e.target)&&!b.contains(e.target)){m.classList.remove('open');b.classList.remove('open');}});
+function openTab(name){document.querySelectorAll('.form-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));document.getElementById('tab-'+name).classList.add('active');document.getElementById('panel-'+name).classList.add('active');}
+
+const form=document.getElementById('contactForm'),submitBtn=document.getElementById('submitBtn'),successMsg=document.getElementById('formSuccess'),errorMsg=document.getElementById('formError');
+form.addEventListener('submit',async function(e){
+  e.preventDefault();successMsg.classList.remove('show');errorMsg.classList.remove('show');
+  submitBtn.disabled=true;submitBtn.innerHTML='<svg style="animation:spin 1s linear infinite;width:16px;height:16px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg> Envoi...';
+  try{const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(res.ok){successMsg.classList.add('show');form.reset();}else throw new Error();}catch{errorMsg.classList.add('show');}
+  submitBtn.disabled=false;submitBtn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg> Envoyer le message';
 });
 
-/* Formspree AJAX */
-const form       = document.getElementById('contactForm');
-const submitBtn  = document.getElementById('submitBtn');
-const successMsg = document.getElementById('formSuccess');
-const errorMsg   = document.getElementById('formError');
-
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  successMsg.classList.remove('show');
-  errorMsg.classList.remove('show');
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = `<svg style="animation:spin 1s linear infinite;width:16px;height:16px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg> Envoi en cours...`;
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      successMsg.classList.add('show');
-      form.reset();
-    } else {
-      throw new Error('Erreur serveur');
-    }
-  } catch(err) {
-    errorMsg.classList.add('show');
-  }
-  submitBtn.disabled = false;
-  submitBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg> Envoyer le message`;
+const compteForm=document.getElementById('compteForm'),compteSubmitBtn=document.getElementById('compteSubmitBtn'),compteSuccess=document.getElementById('compteSuccess'),compteError=document.getElementById('compteError');
+compteForm.addEventListener('submit',async function(e){
+  e.preventDefault();compteSuccess.classList.remove('show');compteError.classList.remove('show');
+  compteSubmitBtn.disabled=true;compteSubmitBtn.innerHTML='<svg style="animation:spin 1s linear infinite;width:16px;height:16px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg> Envoi...';
+  try{const res=await fetch(compteForm.action,{method:'POST',body:new FormData(compteForm),headers:{'Accept':'application/json'}});if(res.ok){compteSuccess.classList.add('show');compteForm.reset();}else throw new Error();}catch{compteError.classList.add('show');}
+  compteSubmitBtn.disabled=false;compteSubmitBtn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg> Créer mon compte';
 });
 </script>
 </body>
