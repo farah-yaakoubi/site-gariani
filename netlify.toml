@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Netlify headers in netlify.toml are global. Generate a context-only _headers file
+# in preview builds so production pages remain indexable.
+[context.deploy-preview]
+  command = "npm run build && npm run seo:noindex"
+
+[context.branch-deploy]
+  command = "npm run build && npm run seo:noindex"

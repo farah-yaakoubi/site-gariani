@@ -1,0 +1,28 @@
+const makeProduct = (model, name, category, file) => ({ model, name, category, file });
+
+export const agricutProducts = [
+  makeProduct('S-20', 'Sécateur à main', 'Sécateurs', 'secateurs/S-20.png'),
+  makeProduct('S-20D', 'Sécateur à main', 'Sécateurs', 'secateurs/S-20D.png'),
+  makeProduct('S-20P', 'Sécateur à main', 'Sécateurs', 'secateurs/S-20P.png'),
+  makeProduct('S-23P', 'Sécateur à main', 'Sécateurs', 'secateurs/S-23P.png'),
+  makeProduct('S-5', 'Sécateur à long manche', 'Sécateurs', 'secateurs/S-5.png'),
+  makeProduct('E-5030', 'Sécateur à batterie', 'Sécateurs à batterie', 'secateurs a batterie/E-5030.png'),
+  makeProduct('E-5035', 'Sécateur à batterie', 'Sécateurs à batterie', 'secateurs a batterie/E-5035.png'),
+  makeProduct('PP E-30', 'Sécateur à batterie avec écran', 'Sécateurs à batterie', 'secateurs a batterie/PP E-30.png'),
+  makeProduct('PP E-35', 'Sécateur à batterie avec écran', 'Sécateurs à batterie', 'secateurs a batterie/PP E-35.png'),
+  makeProduct('H-60', 'Cisaille à haies', 'Cisailles à haies', 'cisailles a haies/H-60.png'),
+  makeProduct('H-60B', 'Cisaille à haies', 'Cisailles à haies', 'cisailles a haies/H-60B.png'),
+  makeProduct('H-88', 'Cisaille à haies télescopique', 'Cisailles à haies télescopiques', 'cisailles a haies telescopiques/H-88.png'),
+  makeProduct('H-88B', 'Cisaille à haies télescopique', 'Cisailles à haies télescopiques', 'cisailles a haies telescopiques/H-88B.png'),
+  makeProduct('L-35', 'Élagueur', 'Élagueurs', 'Elagueur/L-35.png'),
+  makeProduct('L-50', 'Élagueur', 'Élagueurs', 'Elagueur/L-50.png'),
+  makeProduct('L-50T', 'Élagueur télescopique', 'Élagueurs', 'Elagueur/L-50T.png'),
+  makeProduct('yn8m', 'Émondoir', 'Émondoirs', 'emondoirs/yn8m.png'),
+  makeProduct('R-150F', 'Râteau à feuilles', 'Râteaux à feuilles', 'rateaux a feuilles/R-150F.png'),
+  makeProduct('R-170R', 'Râteau à feuilles', 'Râteaux à feuilles', 'rateaux a feuilles/R-170R.png'),
+  makeProduct('P-350C', 'Scie de taille', 'Scies', 'scies/P-350C.png'),
+  makeProduct('PS-270', 'Scie de taille', 'Scies', 'scies/PS-270.png'),
+  makeProduct('PS-300', 'Scie de taille', 'Scies', 'scies/PS-300.png'),
+  makeProduct('T-35', 'Émondoir télescopique', 'Scies et émondoirs', 'scies/T-35.png'),
+  makeProduct('T-430', 'Scie de taille', 'Scies', 'scies/t-430.png'),
+];
